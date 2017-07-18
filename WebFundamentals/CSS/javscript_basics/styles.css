@@ -1,0 +1,52 @@
+body{
+    background-color: darkblue;
+    margin: 1.5vw;
+}
+
+a{
+    color: cyan;
+}
+
+.header, .sidebar, .content, .footer{
+    border-radius: 2vw;
+    background-color: white;
+}
+
+.header{
+    background-color: red;
+    color: lightblue;
+    padding: 1px 2vw;
+    margin-bottom: 20px;
+}
+
+.content, .sidebar{
+    display: inline-block;
+}
+
+.sidebar{
+    width: 20vw;
+    background-color: darkcyan;
+    vertical-align: top;
+    margin-right: 1.5vw;
+}
+
+.sidebar nav{
+    padding: 20px 15px;
+}
+
+.content{
+    width: 77%;
+    background-color: black;
+    color: lightblue;
+}
+
+.content h2, .content p{
+    padding: 0 20px;
+}
+
+.footer{
+    background-color: grey;
+    color: lightblue;
+    padding: 20px 15px;
+    margin-top:2vw;
+}
