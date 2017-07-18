@@ -1,0 +1,48 @@
+body{
+    background-color: lightgrey;
+    padding:1.5vw;
+    margin:0;
+    font-size:0;
+}
+
+.header{
+    background-color: green;
+    height: 15vh;
+    margin-bottom: 1.5vw;
+}
+
+.sidebar, .content{
+    display:inline-block;
+}
+
+.sidebar{
+    width: 20vw;
+    height: 50vh;
+    background-color: blue;
+    vertical-align: top;
+    margin-right: 1.5vw;
+}
+
+.content{
+    height: 74vh;
+    width: 72.5vw;
+    background-color: red;
+    position: relative;
+    padding: 1.5vw;
+}
+
+.yellowBox{
+    display: inline-block;
+    background-color: yellow;
+    width: 30%;
+    height: 50%;
+    margin-right: 2%;
+}
+
+.purpleBox{
+    margin-top: 3vw;
+    clear:both;
+    width: 94%;
+    background-color: purple;
+    height: 30%;
+}
