@@ -1,0 +1,18 @@
+cd ~/desktop
+mkdir gittest && cd gittest
+git init
+touch index.html style.css aboutMe.txt
+git add -A
+git commit -m "First commit, index, styles, and aboutMe added"
+nano aboutMe.txt
+git add -A
+git commit -m "Added bio to aboutMe"
+nano aboutMe.txt
+git commit -m "Added favorite movie to aboutMe"
+git log
+git revert 413dd8df -m "Reverting adding my favorite movie"
+nano aboutMe.txt
+git add -A
+git commit -m "Added favorite book"
+
+
