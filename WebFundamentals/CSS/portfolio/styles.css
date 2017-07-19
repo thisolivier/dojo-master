@@ -1,0 +1,109 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css");
+body{
+    color: darkblue;
+}
+
+header.banner {
+    background-color: lightgray;
+    overflow:hidden;
+    height: auto;
+    padding: 0 20px;
+}
+
+header.banner h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: 400;
+    float:left;
+}
+
+header.banner .biline {
+    font-family: "Helvetica", Arial, sans-serif;
+    font-weight: 800;
+    float:right;
+    margin-top: 30px;
+    font-size: 1.3em;
+}
+
+main {
+    padding: 15px 20px;
+    background: #7db9e8;
+    background: -moz-radial-gradient(center, ellipse cover, #7db9e8 0%, #1e5799 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #7db9e8 0%,#1e5799 100%);
+    background: radial-gradient(ellipse at center, #7db9e8 0%,#1e5799 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 );
+}
+
+.headerBox {
+    background: #d2ff52;
+    background: -webkit-linear-gradient(left, #d2ff52 0%, #91e842 100%); 
+    background: -moz-linear-gradient(left, #d2ff52 0%, #91e842 100%);
+    background: -o-linear-gradient(left, #d2ff52 0%, #91e842 100%);
+    background: linear-gradient(to right, #d2ff52 0%, #91e842 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842',GradientType=1 );
+}
+
+.headerBox h2, .headerBox h3 {
+    position: relative;
+    overflow-x: hidden;
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 800;
+    background: #f6f8f9;
+    background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+    background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+    background: linear-gradient(to bottom, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
+    margin:0;
+    padding: 10px;
+}
+
+.headerBox h3 {
+    font-size: 1.1em;
+}
+
+.headerBox img{
+    width:100%;
+}
+
+.headerBox p{
+    padding-left: 10px;
+}
+
+.techIconBox{
+    text-align: left;
+    margin: 10px;
+}
+
+.techIconBox img{
+    display: inline-block;
+    max-width: 15%;
+    min-width: 40px;
+    padding: 5px;
+}
+
+.intro .portrait-pic {
+    height: 300px;
+    border: 5px solid lightgray;
+    float:left;
+    margin-right: 20px;
+}
+
+.intro .text {
+    overflow:scroll;
+    height: 310px;
+}
+
+.portfolio {
+    margin-top:30px;
+    display: flex;
+    margin-right: -20px;
+}
+
+.portfolio .headerBox{
+    flex: 1 1 30%;
+    margin-right: 20px;
+}
+
+footer{
+    text-align:center;
+}
