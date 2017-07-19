@@ -1,6 +1,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css");
 body{
     color: darkblue;
+    font-family: sans-serif;
 }
 
 header.banner {
@@ -94,9 +95,8 @@ main {
 }
 
 .portfolio {
-    margin-top:30px;
+    margin:30px -20px 30px 0;  
     display: flex;
-    margin-right: -20px;
 }
 
 .portfolio .headerBox{
@@ -104,6 +104,30 @@ main {
     margin-right: 20px;
 }
 
+.button{
+    background-color: darkgreen;
+    color: white;
+    width: 25%;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 7px 1px rgba(0,0,0,0.5);
+}
+
 footer{
     text-align:center;
+}
+
+footer .linksOut img{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-bottom:-5px;
+}
+
+footer .linksOut a{
+    color: black;
+    font-style: italic;
 }
