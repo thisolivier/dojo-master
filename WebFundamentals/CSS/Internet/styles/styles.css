@@ -122,15 +122,15 @@ main {
     margin-right: 40px;
 }
 
-.sidebar h3, .sidebar p{
+.sidebar h3, .sidebar p {
     padding: 3px;
 }
 
-.sidebar p{
+.sidebar p {
     font-weight: 800;
 }
 
-.sidebar hr{
+.sidebar hr {
 margin: 25px 0;
 }
 
@@ -142,16 +142,16 @@ margin: 25px 0;
     background-image: url('../img/ad_background.png');
 }
 
-.advert p{
+.advert p {
     font-weight: 400;
     margin: 10px 0 0;
 }
 
-.advert .button{
+.advert .button {
     margin: 15px 0 25px;
 }
 
-.advert img.ninja{
+.advert img.ninja {
     width: 110px;
     display: block;
     margin: 0 auto;
