@@ -1,0 +1,108 @@
+.body{
+    counter-reset: atom;
+}
+
+.wrapper{
+    margin: 50px auto;
+    counter-reset: col;
+}
+
+.periodicTable {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    color: black;
+    counter-reset: rows;
+}
+
+li {
+    margin-bottom: 2px;
+    display: flex;
+}
+
+.periodicTable [row="1"]{
+    counter-reset: atom;
+}
+
+.periodicTable li::before{
+    counter-increment: rows;
+    content: counter(rows);
+    margin-top:12px;
+}
+
+.periodicTable .complete div::after{
+    counter-increment: col;
+    content: counter(col);
+    position: relative;
+    top: -180px;
+    left: 17px;
+}
+
+.el, .space{
+    display: inline-block;
+    height: 50px;
+}
+
+.el{
+    background-color: #2CE89B;
+    border: 1px solid black;
+    margin-left: 3px;
+    width: 48px;
+    height: 48px;
+}
+
+.el::before{
+    counter-increment: atom;
+    content: counter(atom);
+}
+
+.gr2{
+    background-color: #E8802A;
+}
+
+.gr3{
+    background-color: #F0C032;
+}
+
+.gr4{
+    background-color: #E11A5A;
+}
+
+.periodicTable li div:nth-child(2){
+    margin-right: 5px;
+}
+
+li [data="1"]{
+    width: 53px;
+}
+
+li [data="10"]{
+    width: calc(10 * 53px);
+}
+
+li [data="15"]{
+    width: calc(15 * 53px);
+}
+
+div [reset="71"] {
+    counter-reset: atom 70;
+}
+
+div [reset="103"] {
+    counter-reset: atom 102;
+}
+
+
+.shinyCards{
+    position: relative;
+    padding-left: 102px;
+    margin-left: 57px;
+}
+.shinyCards li:before{
+    content:"Lanthanoids";
+    position: absolute;
+    margin-top: 15px;
+    left:0;
+}
+.shinyCards li:nth-child(2):before{
+    content:"Actinoids";
+}

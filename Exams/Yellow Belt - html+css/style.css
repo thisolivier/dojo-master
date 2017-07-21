@@ -1,0 +1,267 @@
+/*************/
+/* Global ****/
+/*************/
+
+body {
+    background-color: #171717;
+    color: white;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background-image: url(./img/background_light.gif);
+    background-repeat: repeat;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.wrapper {
+    position: relative;
+    width: 980px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.8);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    color: #ef7f2c;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*************/
+/* Header ****/
+/*************/
+
+header .logo{
+    padding: 25px 20px;
+}
+
+header .contactInfo{
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    font-weight: 800;
+    font-size: 1.45em;
+}
+
+header nav{
+    display: flex;
+    padding: 11px 30px;
+    background: rgb(87,87,87);
+    background: -moz-linear-gradient(top, rgb(87,87,87) 0%, rgb(40,40,40) 100%);
+    background: -webkit-linear-gradient(top, rgb(87,87,87) 0%,rgb(40,40,40) 100%);
+    background: linear-gradient(to bottom, rgb(87,87,87) 0%,rgb(40,40,40) 100%);
+}
+
+header nav {
+    font-weight: 800;
+    font-size: 1.45em;
+    position: relative;
+}
+
+header nav :not(.current){
+    color: #a3a3a3;
+}
+
+header nav :not(.current):after {
+    content: "\000BB";
+    position:relative;
+    bottom: 3px;
+    margin-left: 5px;
+    font-size: 0.7em;
+}
+
+header nav a {
+    padding: 4px 15px;
+    border-width: 0 1px;
+    border-color: transparent #383838 transparent #525252;
+    border-style: solid;
+}
+
+header nav a:first-of-type {
+    padding-left: 0;
+    border-left-width: 0;
+}
+
+header nav a:last-of-type {
+    border-right-width: 0;
+}
+
+header nav a:last-of-type:after {
+    content: "";
+}
+
+header nav:after {
+    position: absolute;
+    content:"";
+    height: 100%;
+    border-width: 0 1px;
+    border-color: transparent #525252 transparent #383838;
+    border-style: solid;
+    right:50px;
+    top:0;
+}
+
+/*************/
+/* Main   ****/
+/*************/
+
+.slider {
+    width: 100%;
+    border-width: 0 0 5px 0;
+    border-style: solid;
+    border-color: #3b3b3b;
+}
+
+.keyPoints {
+    display: flex;
+    padding: 20px 25px 40px 25px;
+    font-size: 1.1em;
+}
+
+.keyPoints h2, .keyPoints p {
+    margin: 3px 0;
+}
+
+.keyPoints p {
+    line-height: 1.4;
+}
+
+.keyPoints div{
+    flex: 0 1 25%;
+    position: relative;
+    padding-left: 45px;
+    padding-right: 20px;
+}
+
+.keyPoints img{
+    position: absolute;
+    left: 0;
+    width: 40px;
+}
+
+.callToAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 37px;
+    background-image: url('./img/background_dark.gif');
+    background-repeat: repeat;
+    
+}
+
+.callToAction div{
+    flex: 0 1 620px;
+    color: #b0b0b0;
+    font-size: 1.3em;
+}
+
+.callToAction h2{
+    font-size: 1.6em;
+    font-family: inherit;
+    color: white;
+    margin-bottom:0;
+}
+
+.callToAction p{
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+button {
+    position: relative;
+    color: white;
+    font-size: 1.4em;
+    padding: 10px 30px;
+    border-radius: 6px;
+    border: none;
+    background: rgb(242,155,90);
+    background: -moz-linear-gradient(top, rgb(242,155,90) 0%, rgb(239,127,44) 100%);
+    background: -webkit-linear-gradient(top, rgb(242,155,90) 0%,rgb(239,127,44) 100%);
+    background: linear-gradient(to bottom, rgb(242,155,90) 0%,rgb(239,127,44) 100%);
+}
+
+button:before{
+    border-width: 2px 0 0;
+    border-radius: 6px 6px 0 0;
+    border-style: solid;
+    border-color: rgba(255,255,255,0.5);
+    width: calc(100% - 8px);
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    content:" ";
+}
+
+/*************/
+/* Portfolio */
+/*************/
+
+.portfolio {
+    position: relative;
+    padding: 15px 20px 25px 20px;
+}
+
+.portfolio h2{
+    color: inherit;
+    margin-bottom: 20px;
+    font-size: 1.9em;
+}
+
+.portfolio a.projects{
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    color: #ef7f2c;
+    font-style: italic;
+    margin-right: -3px;
+}
+
+.portfolio a.projects:after{
+    content: "\02192";
+    margin-left: 5px;
+}
+
+.projectsWrapper {
+    display: flex;
+    margin-right: -30px;
+}
+
+.projectsWrapper article{
+    position: relative;
+    flex: 0 1 25%;
+    margin-right: 30px;
+}
+
+.projectsWrapper img{
+    border: 4px solid #363636;
+}
+
+.projectsWrapper h3{
+    font-size: 1.6em;
+    margin: 10px 0px 8px;
+}
+
+.projectsWrapper p{
+    margin-top: 0px;
+    line-height: 1.4;
+}
+
+.toTop{
+    display: block;
+    text-align: right;
+    color: #7c7c7c;
+    padding: 0 20px 2px 0;
+}
