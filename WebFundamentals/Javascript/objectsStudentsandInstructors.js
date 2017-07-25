@@ -26,14 +26,15 @@ function outputNames(arr) {
 
 function nitroNames(obj) {
     function printer(key){
-        console.log(key);
+        console.log(key.toUpperCase());
         var arr = obj[key];
         for (var i = 0; i < arr.length; i++){
             var first = arr[i].first_name,
                 last = arr[i].last_name;
-            console.log (i + " - " + first + " " + last + " - " + (first.length + last.length));
+            console.log ((i+1) + " - " + first + " " + last + " - " + (first.length + last.length));
         }
     }
-    printer("Students");
-    printer("Instructors");
+    for (var group in obj){
+        printer(group);
+    }
 }
