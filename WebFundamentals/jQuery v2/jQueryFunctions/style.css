@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+    color: #0E3D59;
+}
+
+.wrapper {
+    display:none;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card{
+    background-color: #F25C05;
+    color: white;
+    flex: 1 0 200px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.card.key{
+    background-color: #0E3D59;
+}
+
+.card.round {
+    border-radius: 15px;
+}
+
+.card.green {
+    background-color: #88A61B;
+}
+
+.card.yellow {
+    background-color: #F29F05;
+}
+
+.card.blue {
+    background-color: #1D8687;
+}

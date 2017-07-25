@@ -1,0 +1,72 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Functions</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body>
+    <button id="begin">Click to Begin</button>
+    <div class="wrapper">
+        <div class="intro">
+            <h1>Welcome to the jQuery Demo!</h1>
+            <p>We just used the click and show functions, for when you clicked that button, the wrapper was shown:</p>
+            <code>
+                $('#begin').click(function(){
+                    $('.wrapper').show();
+                }
+            )</code>
+        </div>
+        <div class="cardContainer">
+            <div class="key card round">
+                <h2>KEY</h2>
+                <p>Click on the colourful things to make them do things.</p>
+            </div>
+            <div class="green round card">
+                <h2>Fade Away</h2>
+                <code>
+                    $('.green').click(function(){
+                        $(this).fadeOut();
+                    })
+                </code>
+            </div>
+            <div class="yellow round card">
+                <h2>Slide Toggle</h2>
+                <code>
+                    $('.yellow').click(function(){
+                        $(this).slideToggle();
+                    });
+                </code>
+            </div>
+            <div class="orange square card">
+                <h2>Sharp to Round</h2>
+                <code>
+                    $('.square').click(function(){
+                        $(this).addClass('round');
+                    });
+                </code>
+            </div>
+            <div class="orange round card" id="reveal">
+                <h2>Reveal the hidden ones</h2>
+                <code>
+                    $('.square').click(function(){
+                        $(this).addClass('round');
+                    });
+                </code>
+            </div>
+            <div class="blue round card" id="append">
+                <h2 class="joker">Append with my Classes</h2>
+                <p>Bonus here, you have to click the heading</p>
+                <code>
+                    $('#append').on('click', 'h2', function(){<br>
+                        var classList = $(this).closest('.card').attr('class');<br>
+                        $(this).closest('.card').append(classList);
+                    });
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
