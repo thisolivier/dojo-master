@@ -1,0 +1,23 @@
+body{
+    font-family: sans-serif;
+    display: flex;
+}
+
+form{
+    text-align:right;
+    flex: 0 0 auto;
+    vertical-align: top;
+    background-color: red;
+}
+
+label[for="description"]{
+    text-align: left;
+}
+
+form input[type="submit"]{
+    margin: 0 auto;
+}
+
+form label, form input[type="submit"]{
+    display: block;
+}
