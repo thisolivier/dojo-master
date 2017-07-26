@@ -61,6 +61,15 @@ form label, form input[type="submit"]{
     display:none;
 }
 
+.back img{
+    display: inline-block;
+    width: 50%;
+    min-width: 50px;
+    max-width: 150px;
+    margin-bottom: 20px;
+    border-radius: 300px;
+}
+
 .front:after{
     content: "Click to show description";
     display: block;
@@ -69,6 +78,6 @@ form label, form input[type="submit"]{
 
 .back:after{
     content: "Click to show name";
-    padding-bottom: 20px;
+    padding-top: 20px;
     display: block;
 }

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('form').submit(function(event){
         event.preventDefault();
-        makeCard(seralizeData(event));
+        getData();
     })
 
     $('.cards').on('click', '.card', function(){
@@ -9,23 +9,23 @@ $(document).ready(function(){
     })
 });
 
-function makeCard(person) {
-    console.log(person);
-    var newCard = $('.card').first().clone();
-    var newName = person.first_name + " " + person.last_name;
-    newCard.find('h2').text(newName);
-    newCard.children('.back').text(person.description);
-    $('.cards').append(newCard);
+function getData(){
+    var username = $('input[name="username"]').val();
+    console.log(username);
+    var url = 'https://api.github.com/users/' +  username;
+    $.getJSON(url, function(data){
+         makeCard(data);
+    })
 }
 
-function seralizeData(event){
-    var formData = $('form').serialize().split("&");
-        var formObj = {};
-        for (var idx = 0; idx < formData.length; idx++) {
-            var itemData = formData[idx].split("=");
-            formObj[itemData[0]] = itemData[1];
-        }
-        return formObj;
+function makeCard(userObj) {
+    console.log(userObj);
+    var newCard = $('.card').first().clone();
+    var newName = userObj.name;
+    newCard.find('h2').text(newName);
+    newCard.children('.back').text(userObj.bio);
+    newCard.children('.back').prepend('<img src="' + userObj.avatar_url + '"><br>');
+    $('.cards').append(newCard);
 }
 
 function swapContent(){
