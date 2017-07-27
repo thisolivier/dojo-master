@@ -1,0 +1,14 @@
+body{
+    padding: 10px;
+}
+
+h2{
+    color: fuchsia;
+    display: inline;
+    margin-right: 20px;
+}
+
+.cityResult {
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+}
