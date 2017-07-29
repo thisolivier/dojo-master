@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+    font-size: 0;
+    background-color: black;
+}
+
+.row div{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+
+.row div.brick {
+    background-color: blue;
+}
+
+.row div.coin {
+    background-image: url('./img/coin.png');
+    background-size: cover;
+}
+
+.row div.pacman {
+    background-image: url('./img/pac.gif');
+    background-size: cover;
+}

@@ -1,0 +1,7 @@
+Ok so, PIP, the Python package manager, or Python Index Package.
+You can check the name of a package, and see ones related by name, using '$ pip search NAME'
+You install packages by calling pip and passing it the package name, properly formatted.
+If you try and install an already installed package, you're told the requirements are satisfied, inidcating PIP resolves package names to a set of dependencies, and then checks if they're installed, installing what's not.
+PIP freeze provides a list of currently installed packages in the format required for automatic installation. In other words, it's a snapshot of the current state which you could use to re-install those packages.
+You can show details about an installed package by using '$ pip show', this will show the metadata of the package, such as the home-page, version, and liscence.
+
