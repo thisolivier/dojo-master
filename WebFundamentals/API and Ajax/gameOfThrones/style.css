@@ -1,0 +1,39 @@
+body{
+    display: flex;
+}
+
+.houses {
+    flex: 1 1 30%;
+    padding: 0 20px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.housedetails {
+    flex: 1 0 500px;
+    align-self: center;
+    text-align: center;
+    opacity: 0;
+}
+
+.housedetails ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.housedetails li:before{
+    content: attr(id);
+    display: block;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.houses img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    display: block;
+}
