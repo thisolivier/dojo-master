@@ -11,11 +11,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="names.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="names.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/names.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
               <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="making_tuples.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/making_tuples.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -45,6 +55,7 @@
         <option value="$PROJECT_DIR$/stars.py" />
         <option value="$PROJECT_DIR$/disctionary_basics.py" />
         <option value="$PROJECT_DIR$/names.py" />
+        <option value="$PROJECT_DIR$/making_tuples.py" />
       </list>
     </option>
   </component>
@@ -321,6 +332,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/making_tuples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding />
         </state>
       </provider>
