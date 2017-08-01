@@ -15,7 +15,7 @@ def hellOnEarth():
                 break
             count += 1
         if prime == True :
-            print "Foo ", index
+            print index, " Foo"
         elif square != True:
             print "FooBar"
 
