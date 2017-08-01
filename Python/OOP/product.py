@@ -35,9 +35,3 @@ class Product(object):
         print "Cost:",self.cost
         print "Status:",self.status
         return self
-    
-lamp = Product(20, 'Best Lamp', '20kg', 'IHOP', '30')
-
-print lamp.displayInfo().addTax(0.1)
-
-lamp.displayInfo().returns("Returned in the box").displayInfo()
