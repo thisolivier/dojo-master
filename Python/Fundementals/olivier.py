@@ -1,11 +1,10 @@
-def build_Horror():
-    x = {"Olivier":"awesome"}
-    y = {"Body":"lumpy"}
-    z = (x,y)
-    print z
-    x["Olivier"] = "bingo cool"
-    print z
-    del y
-    print z
+class User(object):
+    name = "Anna"
 
-build_Horror()
+
+anna = User()
+print "anna's name: ", anna.name
+User.name = "Bob"
+print "anna's name after change:", anna.name
+bob = User()
+print "bob's name:", bob.name

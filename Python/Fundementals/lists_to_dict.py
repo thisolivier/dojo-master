@@ -7,10 +7,16 @@ def zip_lists(listKeys, listVal):
     # Will work for uneven list lengths
     if len(listKeys) < len(listVal):
         temp = listKeys
-        listKeys = listVal
+        listKeys = listVal  class User(object):
+      name = "Anna"
+  anna = User()
+  print "anna's name: ", anna.name
+  User.name = "Bob"
+  print "anna's name after change:", anna.name
+  bob = User()
+  print "bob's name:", bob.name
         listVal = temp
 
-        
     # We enumerate the possibly shorter list, so that we never reach out of range
     for index, val in enumerate(listVal):
         new_dict[ listKeys[index] ] = val
