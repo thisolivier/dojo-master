@@ -21,11 +21,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debugging.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="debugging.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debugging.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fun_with_fucntions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fun_with_fucntions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -49,12 +59,13 @@
         <option value="$PROJECT_DIR$/Foo_and_bar.py" />
         <option value="$PROJECT_DIR$/python_turtle/debugging.py" />
         <option value="$PROJECT_DIR$/debugging.py" />
+        <option value="$PROJECT_DIR$/fun_with_fucntions.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-22" />
-    <option name="y" value="23" />
+    <option name="x" value="40" />
+    <option name="y" value="33" />
     <option name="width" value="1260" />
     <option name="height" value="687" />
   </component>
@@ -79,11 +90,6 @@
             <path>
               <item name="Fundementals" type="b2602c69:ProjectViewProjectNode" />
               <item name="Fundementals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fundementals" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fundementals" type="462c0819:PsiDirectoryNode" />
-              <item name="python_turtle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -127,7 +133,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-22" y="23" width="1260" height="687" extended-state="0" />
+    <frame x="40" y="33" width="1260" height="687" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -222,14 +228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/checkerboard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Foo_and_bar">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -274,6 +272,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkerboard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fun_with_fucntions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
           <folding />
         </state>
       </provider>
