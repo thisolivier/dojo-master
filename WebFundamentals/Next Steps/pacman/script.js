@@ -29,8 +29,7 @@ function whatDirection(event){
 function callMove(direction){
     var xPos = $('.pacpac').nextAll().length;
     var yPos = $('.pacpac').parent().nextAll().length;
-    console.log("X = " + xPos + ". Y = " + yPos);
-    console.dir($('.pacpac').nextAll());
+    
 }
 
 // When get move,
