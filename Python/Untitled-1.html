@@ -1,0 +1,28 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+            function deDupe(str){
+                var returnStr = "",
+                    tempObj = {};
+                
+                for (var i = 0; i < str.length; i++){
+                    if (tempObj[str[i]]){
+                        continue;
+                    }
+                    tempObj[str[i]] = true;
+                    returnStr += str[i];
+                }
+                
+                return returnStr;
+            }
+
+            console.log (deDupe("hello my friend who I like"));
+        </script>
+    </head>
+    <body>
+        Hi
+    </body>
+</html>
