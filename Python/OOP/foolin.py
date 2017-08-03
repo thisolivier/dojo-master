@@ -1,19 +1,14 @@
-local_val = "magical unicorns"
-def square(x):
-    return x * x
+# instantiate class User
 class User(object):
-    def __init__(self, name):
-        self.name = name
-    def say_hello(self):
-        return "hello"
-
-print square(5)
-user = User("Anna")
-print user.name
-print user.say_hello()
+  # this method to run every time a new object is instantiated
+  def __init__(self, name, email):
+    # instance attributes from
+    self.name = name
+    self.email = email
+    self.logged = True
+  def __repr__(self):
+    return "<User object {}, email {}>".format(self.name,self.email)
 
 if __name__ == "__main__":
-    print "the file is being executed directly"
-else:
-    print "The file is being executed because it is imported by another file. The file is called: ", __name__
-  
+  user = User("Anna", "anna@anna.com")
+  print user
