@@ -6,6 +6,9 @@ class Store (object):
         self.location = location
         self.owner = owner
 
+    def __repr__ (self):
+        return "<User Store object, location = '{}', owner = '{}', use inventory() method for products>".format(self.location, self.owner)
+
     def add_product (self, price, itemName, weight, brand, cost, status):
         newProduct = product.Product(price, itemName, weight, brand, cost, status)
         self.products.append(newProduct)

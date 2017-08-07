@@ -1,6 +1,9 @@
 class MathDojo(object):
     def __init__(self):
         self.counter = 0
+    
+    def __repr__ (self) :
+        return "<User object of MathDojo, methods add() subtract()>"
 
     def add(self, *num):
         for thisNum in num:
@@ -20,7 +23,10 @@ class MathDojo(object):
                 self.counter -= thisNum
         return self
 
-md = MathDojo()
-md.add(24)
-md.subtract((1,2,1), 10, (5,1))
-print md.counter
+if __name__ == "__main__":
+
+    md = MathDojo()
+    md.add(24)
+    md.subtract((1,2,1), 10, (5,1))
+    print md.counter
+    print md

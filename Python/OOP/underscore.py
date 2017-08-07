@@ -1,6 +1,8 @@
 from inspect import getargspec
 
 class Underscore(object):
+    def __repr__ (self):
+        return "<User object Underscore, methods map() reduce() find() filter(), helper method callCall()>"
 
     def callCall(self, callback, arguments):
         desiredNo = len(getargspec(callback).args)
@@ -66,3 +68,4 @@ print "\n---------\nHere come the results!\n---------\n"
 for key in results:
     print "{}: {}".format(key, results[key])
 print ""
+print _
