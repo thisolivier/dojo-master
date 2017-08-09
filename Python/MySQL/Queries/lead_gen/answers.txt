@@ -41,3 +41,37 @@ SELECT clients.first_name, clients.last_name, COUNT(sites.domain_name) FROM clie
 		WHERE YEAR(leads.registered_datetime) = 2011
 		GROUP BY clients.client_id
 
+7)
+SELECT clients.first_name, clients.last_name, COUNT(leads.leads_id) as count, MONTHNAME(leads.registered_datetime) as month FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+    JOIN leads ON sites.site_id = leads.site_id
+		WHERE YEAR(leads.registered_datetime) = 2011 AND MONTH(leads.registered_datetime) in (1,2,3,4,5,6)
+			GROUP BY MONTH(leads.registered_datetime)
+            ORDER BY MONTH(leads.registered_datetime)
+
+8)
+SELECT CONCAT_WS(' ', clients.first_name, clients.last_name) as name, sites.domain_name,  count(leads.leads_id) as 'no_leads' FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+    JOIN leads ON sites.site_id = leads.site_id
+		WHERE YEAR(leads.registered_datetime) = 2011 
+			GROUP BY sites.site_id
+				ORDER BY clients.client_id;
+
+SELECT CONCAT_WS(' ', clients.first_name, clients.last_name) as name, sites.domain_name,  count(leads.leads_id) as 'no_leads' FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+    JOIN leads ON sites.site_id = leads.site_id
+			GROUP BY sites.site_id
+				ORDER BY clients.client_id;
+
+9)
+SELECT CONCAT_WS(' ', clients.first_name, clients.last_name) as name, sites.domain_name, MONTHNAME(billing.charged_datetime), count(leads.leads_id) as 'no_leads' FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+    JOIN leads ON sites.site_id = leads.site_id
+    JOIN billing ON clients.client_id = billing.client_id
+			GROUP BY sites.domain_name, MONTH(billing.charged_datetime)
+				ORDER BY clients.client_id, sites.domain_name, MONTH(billing.charged_datetime);
+
+10)
+SELECT clients.last_name, GROUP_CONCAT(' ', sites.domain_name) as sites FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+		GROUP BY clients.client_id
