@@ -1,0 +1,43 @@
+1)
+SELECT SUM(billing.amount) as name FROM clients
+	JOIN billing ON clients.client_id = billing.client_id
+		WHERE billing.charged_datetime > '2012-02-31' 
+        AND billing.charged_datetime < '2012-04-01'
+
+2)
+SELECT SUM(billing.amount) as name FROM clients
+	JOIN billing ON clients.client_id = billing.client_id
+		WHERE clients.client_id = 2
+
+3) 
+SELECT sites.domain_name FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+		WHERE clients.client_id = 10
+
+4)
+SELECT 
+    clients.client_id,
+    count(sites.domain_name) as 'no sites', 
+    MONTHNAME(sites.created_datetime) as month, 
+    YEAR(sites.created_datetime) as year ,
+    sites.created_datetime
+FROM sites
+	JOIN clients ON clients.client_id = sites.client_id
+		WHERE clients.client_id = 1
+		GROUP BY MONTH(sites.created_datetime), YEAR(sites.created_datetime)
+			ORDER BY sites.created_datetime
+
+5)
+SELECT sites.domain_name, count(leads.leads_id) as 'no_leads' FROM sites
+	LEFT JOIN leads ON sites.site_id = leads.site_id
+		WHERE leads.registered_datetime > '2011-01-01' 
+        AND leads.registered_datetime < '2012-02-16'
+			GROUP BY sites.domain_name;
+
+6)
+SELECT clients.first_name, clients.last_name, COUNT(sites.domain_name) FROM clients
+	JOIN sites ON clients.client_id = sites.client_id
+    JOIN leads ON sites.site_id = leads.site_id
+		WHERE YEAR(leads.registered_datetime) = 2011
+		GROUP BY clients.client_id
+
