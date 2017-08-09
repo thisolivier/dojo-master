@@ -1,0 +1,29 @@
+USE lead_gen_business;
+SET SQL_SAFE_UPDATES = 0;
+
+SELECT clients.first_name, count(sites.domain_name) as 'no. domains'
+FROM clients
+ JOIN sites ON clients.id = sites.clients_id
+ WHERE clients.id != 1
+ GROUP BY clients.id HAVING count(sites.domain_name) > 2;
+ 
+INSERT INTO clients (first_name, last_name, joined_datetime)
+  VALUES ('Gothem', 'Bat', NOW());
+  
+SELECT id, last_name FROM clients
+ WHERE clients.email = '';
+ 
+DELETE FROM clients 
+	WHERE clients.email = '' 
+    AND clients.id NOT IN (
+      SELECT * FROM (
+       SELECT MIN(clients.id) FROM clients
+        GROUP BY clients.last_name
+	 ) x
+    );
+ 
+UPDATE clients SET email = 'bat@batcave.dark' WHERE email = '';
+
+SELECT id, first_name, last_name, email FROM clients
+ WHERE clients.email = '' OR clients.email LIKE '%dark';
+ 
