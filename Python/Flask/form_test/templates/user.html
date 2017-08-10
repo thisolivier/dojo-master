@@ -1,0 +1,15 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Show dat form | A test app</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            <h1>User:</h1>
+            <h3>{{session['name']}}</h3>
+            <h3>{{session['email']}}</h3>
+        </article>
+    </body>
+</html>

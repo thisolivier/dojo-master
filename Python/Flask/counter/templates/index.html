@@ -1,0 +1,26 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>It Only Goes Up</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            <h1>Raise My <span class="big"> {{session['counter']}} </span> Digits!</h1>
+            <form class="big" action="/users" method="post">
+                <input type="hidden" name="howMany" value="1">
+                <input type="submit" value="NIPPLE">
+            </form>
+            <form class="small" action="/users" method="post">
+                <input type="hidden" name="howMany" value="3">
+                <input type="submit" value="3 NIPPLES">
+            </form>
+            <form class="small" action="/users" method="post">
+                <input type="hidden" name="howMany" value="reset">
+                <input type="submit" value="RESET">
+            </form>
+            
+        </article>
+    </body>
+</html>
