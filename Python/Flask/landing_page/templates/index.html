@@ -1,0 +1,19 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Root Route</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            <h1>Home</h1>
+            <h3>Create a user</h3>
+            <form action="/users" method="post">
+                <label>Name: <input type="text" name="name"></label>
+                <label>Email: <input type="text" name="email"></label>
+                <input type="submit" value="Make user">
+            </form>
+        </article>
+    </body>
+</html>
