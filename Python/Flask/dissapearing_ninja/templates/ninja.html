@@ -1,0 +1,17 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The {{ color }} Ninja</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            {% if color in ('blue', 'orange', 'red', 'purple') %}
+                <img src="{{ url_for ('static', filename='ninjas/{}.jpg'.format(color)) }}" alt="Oh my god it's the {{ color }} tennage mutant ninja turtle!">
+            {% else %}
+                <img src="{{ url_for ('static', filename='ninjas/notapril.jpg') }}" alt="Oh my god it's the {{ color }} tennage mutant ninja turtle!">
+            {% endif %}
+        </article>
+    </body>
+</html>
