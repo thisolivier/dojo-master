@@ -1,0 +1,39 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        <article>
+            <h1>Welcome Child</h1>
+            <p>Feed the void your information</p>
+            <form method="post" action="/results">
+            <label>Name: <input type="text" name="name"></label>
+            <label>
+                Location: 
+                <select name="location">
+                    <option value="Seattle">Seattle</option>
+                    <option value="Moon">Moonbase Alpha</option>
+                </select>
+            </label>
+            <label>
+                Favorite Language: 
+                <select name="language">
+                    <option value="css">CSS3</option>
+                    <option value="js">Javascript</option>
+                    <option value="python">Python</option>
+                    <option value="php">PHP 7.1</option>
+                    <option value="mysql">MySQL</option>
+                </select>
+            </label>
+            <label>
+                Comment:
+                <textarea name="comment"></textarea>
+            </label>
+            <input type="submit" value="DOOM">
+            </form>
+        </article>
+    </body>
+</html>
