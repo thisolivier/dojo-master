@@ -1,0 +1,24 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>This shit be random</title>
+    </head>
+    <body>
+        <article>
+            <h1>This is going to get RANDOM</h1>
+            <ul>
+                <li>
+                    {% if True == True %}
+                        This is the first time you've been here.
+                    {% else %}
+                        You have been here X times before.
+                    {% endif %}
+                </li>
+                <li>
+                    {{ random }}
+                </li>
+            </ul>
+        </article>
+    </body>
+</html>
