@@ -9,10 +9,10 @@
             <h1>This is going to get RANDOM</h1>
             <ul>
                 <li>
-                    {% if True == True %}
+                    {% if count == 0 %}
                         This is the first time you've been here.
                     {% else %}
-                        You have been here X times before.
+                        You have been here {{count}} times before.
                     {% endif %}
                 </li>
                 <li>
