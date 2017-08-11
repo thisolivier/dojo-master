@@ -1,0 +1,28 @@
+<!doctype HTML>
+{% load static %}
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The Platonic Form</title>
+        <link rel="stylesheet" href="{% static 'form/style.css' %}">
+    </head>
+    <body>
+        <article>
+            <h1>Hello my Brain Bud</h1>
+            <form method="POST" action="/surveys/process">
+                {% csrf_token %}
+                <label>Field, I guess<input type="text" name="field"></label>
+                <label>Sorta dropdown
+                    <select name="options">
+                        <option value="who">Who</option>
+                        <option value="what">What</option>
+                        <option value="where">Where</option>
+                        <option value="potato">Potato</option>
+                    </select>
+                </label>
+                Area for words<textarea name="comment"></textarea>
+                <input type="submit" value="JUST FRIENDS">
+            </form>
+        </article>
+    </body>
+</html>

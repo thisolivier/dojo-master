@@ -1,0 +1,26 @@
+<!doctype HTML>
+{% load static %}
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The Platonic Form</title>
+        <link rel="stylesheet" href="{% static 'form/style.css' %}">
+    </head>
+    <body>
+        <article>
+            <h1>Absorbing Your Data</h1>
+            <p>
+                {% if request.session.count < 2 %}
+                    Hey newbie, I like the way your mouse moves over me.
+                {% else %}
+                    FYI, this is your {{request.session.count}}th form submit
+                {% endif %}
+            </p>
+            <ul>
+                <li><span>Generic Field: </span>{{request.session.field}}</li>
+                <li><span>Choice: </span>{{request.session.option}}</li>
+                <li><span>Many words: </span>{{request.session.comment}}</li>
+            </ul>
+        </article>
+    </body>
+</html>
