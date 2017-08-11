@@ -5,6 +5,6 @@ from time import gmtime, strftime
 def give_time(request):
     print "----> Entered the views, rendering the index from give_time."
     context = {
-        "nowTime": strftime("%Y-%m-%d %H:%M %p and %S seconds", gmtime()),
+        "nowTime": strftime("%b %d, %Y %H:%M %p", gmtime()),
     }
     return render(request, 'clock/index.html', context)
