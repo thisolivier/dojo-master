@@ -5,7 +5,6 @@ def test(req):
     return render(req, 'form/index.html')
 
 def process(req):
-    req.session['count'] = 0
     try:
         req.session['count']
     except:

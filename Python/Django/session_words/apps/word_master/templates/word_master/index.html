@@ -1,0 +1,34 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/word_master/style.css' %}">
+    </head>
+    <body>
+        <article>
+            <h1>Feed Me Words</h1>
+            <form method="POST" action="surveys/add">
+                {% csrf_token %}
+                <label><h3>Choose!</h3><input type="text" name="word"></label>
+                <h3>What color?</h3>
+                <label>Plumb <input type="radio" name="color" value="plumb"></label>
+                <label>Red <input type="radio" name="color" value="red"></label>
+                <label>Lime <input type="radio" name="color" value="lime" checked="checked"></label>
+                <label><h3>Engorge?</h3><input type="checkbox" name="big" value="big"></label>
+                <input type="submit" value="FEED">
+            </form>
+        </article>
+        <article>
+            <h2>Das Vurts</h2>
+            {% for item in request.session.entries %}
+                {{item|safe}}
+            {% endfor %}
+            <form method="POST" action="surveys/reset">
+                {% csrf_token %}
+                <input type="submit" value="nuke'm">
+            </form>
+        </article>
+    </body>
+</html>
