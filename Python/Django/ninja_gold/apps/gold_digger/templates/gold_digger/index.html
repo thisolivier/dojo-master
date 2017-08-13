@@ -1,0 +1,79 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <title>Dig 4 Gold 2day!</title>
+        <link rel="stylesheet" href="{% static 'gold_digger/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <span>you have</span>
+            {% if request.session.gold < 0 %}
+                <h1>Gold Problems</h1>
+            {% elif request.session.gold < 51 %}
+                <h1>Little Gold</h1>
+            {% else %}
+                <h1>Much Golds</h1>
+            {% endif %}
+            <span>or {{ request.session.gold }} to be exact</span>
+        </header>
+        <main>
+            <widget>
+                <h3>Uptown Bar</h3>
+                <span>(earns 20-50 golds)</span>
+                <form method="POST" action="/goldme">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="bar_nice">
+                    <input type="submit" value="DIG">
+                </form>
+            </widget>
+            <widget>
+                <h3>Your Sucky Job</h3>
+                <span>(earns 5-10 golds)</span>
+                <form method="POST" action="/goldme">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="job">
+                    <input type="submit" value="DIG">
+                </form>
+            </widget>
+            <widget>
+                <h3>School</h3>
+                <span>(earns 2-5 golds)</span>
+                <form method="POST" action="/goldme">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="school">
+                    <input type="submit" value="DIG">
+                </form>
+            </widget>
+            <widget>
+                <h3>Dive Bar</h3>
+                <span>(could go well or really badly)</span>
+                <form method="POST" action="/goldme">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="bar_dive">
+                    <input type="submit" value="DIG">
+                </form>
+            </widget>
+            <widget>
+                <h3>Shops</h3>
+                <span>(spend / invest 10-50 golds)</span>
+                <form method="POST" action="/goldme">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="shopping">
+                    <input type="submit" value="DIG">
+                </form>
+            </widget>
+        </main>
+        <footer>
+            <ul class="logs">
+                {% for entry in request.session.log %}
+                    {% if forloop.counter0 < 8 %}
+                        <li>{{ entry }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <a href="/reset">Turn it Off and On</a>
+        </footer>
+    </body>
+</html>

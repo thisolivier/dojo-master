@@ -1,0 +1,94 @@
+body{
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #FFBE2C;
+    color: #4C5E52;
+    margin: 0;
+}
+
+h1{
+    margin:0;
+    color: #2F3436;
+}
+
+header{
+    background-color: #FFFABB;
+    display:inline-block;
+    border-radius: 0 0 2em 2em;
+    padding: 0.3em 2em 1em 2em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+main widget{
+    flex: 0 0 250px;
+    max-width: 250px;
+    background-color: #FFFABB;
+    border-radius: 2em;
+    border: 0.2em dashed #4C5E52;
+    position: relative;
+    margin-top: 3em;
+}
+
+main widget span{
+    display: block;
+    padding: 0 1em;
+    color: #B2B27F;
+}
+
+main widget input[type="submit"]{
+    background-color: #B2B27F;
+    color: #2F3436;
+    border-width:0;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: calc(100% + 0.4em);
+    position: relative;
+    left: -0.2em;
+    bottom: -0.4em;
+    margin-top: 0.5em;
+    border: 0.2em solid #4C5E52;
+    border-top-width: 0;
+}
+
+footer{
+    background-color: #2F3436;
+    color: #FFECA1;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 1em 0 0.8em 0;
+}
+
+footer a{
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer .logs{
+    padding: 0 0 1em 0;
+    margin: 0;
+    display: inline-block;
+}
+footer .logs li{
+    height: 0;
+    overflow: hidden;
+    text-align: left;
+    transition: all 1s;
+    color: #B2B27F;
+}
+
+footer .logs::before{
+    content: "Logs |";
+    font-weight: bold;
+}
+
+footer .logs:hover li{
+    height: auto;
+}
