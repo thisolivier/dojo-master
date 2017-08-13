@@ -1,0 +1,91 @@
+<!doctype HTML>
+    <html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <title>Not Evil Yet | Amadon</title>
+        <link rel="stylesheet" href="{% static 'store_app/style.css' %}">
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <div class="row style1">
+            <h1>Amadon - The Dojo's Marketplace</h1>
+            <p>Not big enough to have committed any human rights violations... yet!</p>
+        </div>
+        <div class="row style2">
+            <table>
+                <thead>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Number</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Trousers of Power</td>
+                        <td>$88.05</td>
+                        <td>
+                            <form action="/purchase/buy" method="POST">
+                                {% csrf_token %}
+                                <select name="quantity">
+                                    <option value="2">2</option>
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <input type="hidden" name="productID" value="1">
+                                <input type="submit" value="BUY">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hat of Deceipt</td>
+                        <td>$700.00</td>
+                        <td>
+                            <form action="/purchase/buy" method="POST">
+                                {% csrf_token %}
+                                <select name="quantity">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="300">3?</option>
+                                </select>
+                                <input type="hidden" name="productID" value="2">
+                                <input type="submit" value="BUY">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Socks of Sadness</td>
+                        <td>$10.50</td>
+                        <td>
+                            <form action="/purchase/buy" method="POST">
+                                {% csrf_token %}
+                                <select name="quantity">
+                                    <option value="1">1</option>
+                                    <option value="1">Seven</option>
+                                    <option value="-1">-1</option>
+                                </select>
+                                <input type="hidden" name="productID" value="3">
+                                <input type="submit" value="BUY">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Brazire of Misdirection</td>
+                        <td>$40</td>
+                        <td>
+                            <form action="/purchase/buy" method="POST">
+                                {% csrf_token %}
+                                <select name="quantity">
+                                    <option value="0.5">0.5</option>
+                                    <option value="9">9</option>
+                                </select>
+                                <input type="hidden" name="productID" value="4">
+                                <input type="submit" value="BUY">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

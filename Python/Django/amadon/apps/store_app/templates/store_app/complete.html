@@ -1,0 +1,29 @@
+<!doctype HTML>
+    <html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <title>Not Evil Yet | Amadon</title>
+        <link rel="stylesheet" href="{% static 'store_app/style.css' %}">
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <div class="row style1">
+            <h1>Amadon - The Dojo's Marketplace</h1>
+            <p>Not big enough to have committed any human rights violations... yet!</p>
+        </div>
+        <div class="row style2">
+            <h2>Thank you for ordering the '{{request.session.pTitle}}'</h2>
+            <p>
+                You ordered {{request.session.pQuant}} of the item at ${{request.session.pPrice}} per item, <b>your card was charged ${{request.session.pTotal}}</b>.
+            </p>
+            <p>
+                So far you've ordered {{request.session.totalOrders}} times with Amadon, we hope you'll continue to do so. Your total spend is {{request.session.totalPrice}}.
+            </p>
+        </div>
+        <div class="row style3">
+            <a href="/">Back to Store</a>
+            <a href="/reset">Reset your Session</a>
+        </div>
+    </body>
+</html>
