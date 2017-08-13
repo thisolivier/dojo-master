@@ -1,0 +1,560 @@
+Last login: Sun Aug 13 15:43:55 on ttys001
+ olivier  ~  cd ~/Sites/DojoAssignments/Python 
+ olivier  ~/Sites/DojoAssignments/Python   master ●  ls
+Django       Flask        MySQL        apps
+Environments Fundementals OOP
+ olivier  ~/Sites/DojoAssignments/Python   master ●  ls -alt
+total 32
+-rw-r--r--@  1 olivier  staff  14340 13 Aug 15:45 .DS_Store
+drwxr-xr-x  13 olivier  staff    442 13 Aug 15:01 Django
+drwxr-xr-x  14 olivier  staff    476 11 Aug 11:22 ..
+drwxr-xr-x  11 olivier  staff    374 11 Aug 11:19 .
+drwxr-xr-x   2 olivier  staff     68 11 Aug 11:19 apps
+drwxr-xr-x   5 olivier  staff    170 10 Aug 08:30 Environments
+drwxr-xr-x  14 olivier  staff    476 10 Aug 00:14 Flask
+drwxr-xr-x   6 olivier  staff    204  9 Aug 10:22 MySQL
+drwxr-xr-x   3 olivier  staff    102  7 Aug 17:49 .vscode
+drwxr-xr-x  16 olivier  staff    544  3 Aug 12:26 OOP
+drwxr-xr-x  27 olivier  staff    918  1 Aug 11:25 Fundementals
+ olivier  ~/Sites/DojoAssignments/Python   master ●  cd Environments 
+ olivier  ~/Sites/DojoAssignments/Python/Environments   master ●  source djangoEnv/bin/activate
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Environments   master ●  cd ../Django 
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django   master ●  cd users 
+(djangoEnv)  ✘  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  python manage.py startserver
+Unknown command: 'startserver'
+Type 'manage.py help' for usage.
+(djangoEnv)  ✘  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  python manage.py runserver  
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+August 13, 2017 - 22:56:26
+Django version 1.10, using settings 'users.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^C%                                                                                                                            (djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  python manage.py makemigrations 
+SystemCheckError: System check identified some issues:
+
+ERRORS:
+user_login.User.email_address: (fields.E120) CharFields must define a 'max_length' attribute.
+user_login.User.first_name: (fields.E120) CharFields must define a 'max_length' attribute.
+user_login.User.last_name: (fields.E120) CharFields must define a 'max_length' attribute.
+(djangoEnv)  ✘  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  python manage.py makemigrations
+Migrations for 'user_login':
+  apps/user_login/migrations/0001_initial.py:
+    - Create model User
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  python manage.py migrate       
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, user_login
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying sessions.0001_initial... OK
+  Applying user_login.0001_initial... OK
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ●  git add -A
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master ✚  git commit -m "started users assignment"
+[master c8e6001] started users assignment
+ 19 files changed, 51 insertions(+), 70 deletions(-)
+ delete mode 100644 Python/Django/test_orm/apps/test_01/migrations/0001_initial.py
+ delete mode 100644 Python/Django/test_orm/apps/test_01/models.py
+ rename Python/Django/{test_orm => users}/apps/__init__.py (100%)
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/__init__.py (100%)
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/admin.py (100%)
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/apps.py (57%)
+ create mode 100644 Python/Django/users/apps/user_login/migrations/0001_initial.py
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/migrations/__init__.py (100%)
+ create mode 100644 Python/Django/users/apps/user_login/models.py
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/tests.py (100%)
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/urls.py (100%)
+ rename Python/Django/{test_orm/apps/test_01 => users/apps/user_login}/views.py (100%)
+ rename Python/Django/{test_orm => users}/db.sqlite3 (88%)
+ rename Python/Django/{test_orm => users}/manage.py (90%)
+ rename Python/Django/{test_orm/test_orm => users/users}/__init__.py (100%)
+ rename Python/Django/{test_orm/test_orm => users/users}/settings.py (93%)
+ rename Python/Django/{test_orm/test_orm => users/users}/urls.py (96%)
+ rename Python/Django/{test_orm/test_orm => users/users}/wsgi.py (73%)
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master  git push
+Counting objects: 18, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (18/18), 8.50 KiB | 0 bytes/s, done.
+Total 18 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To github.com:thisolivier/review-coding-dojo.git
+   d65b9db..c8e6001  master -> master
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/users   master  python manage.py shell
+Python 2.7.10 (default, Feb  7 2017, 00:08:15) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.4.1 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: IPython
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-15857cdaa23c> in <module>()
+----> 1 IPython
+
+NameError: name 'IPython' is not defined
+
+In [2]: from User import *
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-2-43773435671b> in <module>()
+----> 1 from User import *
+
+ImportError: No module named User
+
+In [3]: from user_login import *
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-3-be8cdd4aaea2> in <module>()
+----> 1 from user_login import *
+
+ImportError: No module named user_login
+
+In [4]: from users import *
+
+In [5]: User.all()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-5-0cf22e4a80f4> in <module>()
+----> 1 User.all()
+
+NameError: name 'User' is not defined
+
+In [6]: from apps.user_login.models import *
+
+In [7]: User.all()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-7-0cf22e4a80f4> in <module>()
+----> 1 User.all()
+
+AttributeError: type object 'User' has no attribute 'all'
+
+In [8]: User.objects.all()
+Out[8]: <QuerySet []>
+
+In [9]: User.objects.create(first_name = 'Olivier', last_name = 'Butler', email_address = 'olivier@olivier.uk')
+---------------------------------------------------------------------------
+IntegrityError                            Traceback (most recent call last)
+<ipython-input-9-0da95262130f> in <module>()
+----> 1 User.objects.create(first_name = 'Olivier', last_name = 'Butler', email_address = 'olivier@olivier.uk')
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in create(self, **kwargs)
+    397         obj = self.model(**kwargs)
+    398         self._for_write = True
+--> 399         obj.save(force_insert=True, using=self.db)
+    400         return obj
+    401 
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in save(self, force_insert, force_update, using, update_fields)
+    794 
+    795         self.save_base(using=using, force_insert=force_insert,
+--> 796                        force_update=force_update, update_fields=update_fields)
+    797     save.alters_data = True
+    798 
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in save_base(self, raw, force_insert, force_update, using, update_fields)
+    822             if not raw:
+    823                 self._save_parents(cls, using, update_fields)
+--> 824             updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+    825         # Store the database on which the object was saved
+    826         self._state.db = using
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in _save_table(self, raw, cls, force_insert, force_update, using, update_fields)
+    906 
+    907             update_pk = bool(meta.has_auto_field and not pk_set)
+--> 908             result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+    909             if update_pk:
+    910                 setattr(self, meta.pk.attname, result)
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in _do_insert(self, manager, using, fields, update_pk, raw)
+    945         """
+    946         return manager._insert([self], fields=fields, return_id=update_pk,
+--> 947                                using=using, raw=raw)
+    948 
+    949     def delete(self, using=None, keep_parents=False):
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in _insert(self, objs, fields, return_id, raw, using)
+   1041         query = sql.InsertQuery(self.model)
+   1042         query.insert_values(fields, objs, raw=raw)
+-> 1043         return query.get_compiler(using=using).execute_sql(return_id)
+   1044     _insert.alters_data = True
+   1045     _insert.queryset_only = False
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/sql/compiler.pyc in execute_sql(self, return_id)
+   1052         with self.connection.cursor() as cursor:
+   1053             for sql, params in self.as_sql():
+-> 1054                 cursor.execute(sql, params)
+   1055             if not (return_id and cursor):
+   1056                 return
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/backends/utils.pyc in execute(self, sql, params)
+     77         start = time()
+     78         try:
+---> 79             return super(CursorDebugWrapper, self).execute(sql, params)
+     80         finally:
+     81             stop = time()
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/backends/utils.pyc in execute(self, sql, params)
+     62                 return self.cursor.execute(sql)
+     63             else:
+---> 64                 return self.cursor.execute(sql, params)
+     65 
+     66     def executemany(self, sql, param_list):
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/utils.pyc in __exit__(self, exc_type, exc_value, traceback)
+     92                 if dj_exc_type not in (DataError, IntegrityError):
+     93                     self.wrapper.errors_occurred = True
+---> 94                 six.reraise(dj_exc_type, dj_exc_value, traceback)
+     95 
+     96     def __call__(self, func):
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/backends/utils.pyc in execute(self, sql, params)
+     62                 return self.cursor.execute(sql)
+     63             else:
+---> 64                 return self.cursor.execute(sql, params)
+     65 
+     66     def executemany(self, sql, param_list):
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/backends/sqlite3/base.pyc in execute(self, query, params)
+    335             return Database.Cursor.execute(self, query)
+    336         query = self.convert_query(query)
+--> 337         return Database.Cursor.execute(self, query, params)
+    338 
+    339     def executemany(self, query, param_list):
+
+IntegrityError: NOT NULL constraint failed: user_login_user.age
+
+In [10]: User.objects.all()
+Out[10]: <QuerySet []>
+
+In [11]: User.objects.create(first_name = 'Olivier', last_name = 'Butler', email_address = 'olivier@olivier.uk', age='1007')
+Out[11]: <User: User object>
+
+In [12]: User.objects.all()
+Out[12]: <QuerySet [<User: User object>]>
+
+In [13]: User.objects.value()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-13-32735affa074> in <module>()
+----> 1 User.objects.value()
+
+AttributeError: 'Manager' object has no attribute 'value'
+
+In [14]: User.objects.first()
+Out[14]: <User: User object>
+
+In [15]: User.objects.first().values()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-15-4eb895127581> in <module>()
+----> 1 User.objects.first().values()
+
+AttributeError: 'User' object has no attribute 'values'
+
+In [16]: User.objects.first().value()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-16-a6a1b1bedd68> in <module>()
+----> 1 User.objects.first().value()
+
+AttributeError: 'User' object has no attribute 'value'
+
+In [17]: User.objects.first().valu()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-17-d4fe2d55a99c> in <module>()
+----> 1 User.objects.first().valu()
+
+AttributeError: 'User' object has no attribute 'valu'
+
+In [18]: User.objects.first().all()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-18-50e6030e6257> in <module>()
+----> 1 User.objects.first().all()
+
+AttributeError: 'User' object has no attribute 'all'
+
+In [19]: User.objects.all()
+Out[19]: <QuerySet [<User: User object>]>
+
+In [20]: User.objects.all().values()
+Out[20]: <QuerySet [{'first_name': u'Olivier', 'last_name': u'Butler', 'created_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>), u'id': 1, 'email_address': u'olivier@olivier.uk', 'age': 1007}]>
+
+In [21]: User.objects.all().values().distinct()
+Out[21]: <QuerySet [{'first_name': u'Olivier', 'last_name': u'Butler', 'created_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>), u'id': 1, 'email_address': u'olivier@olivier.uk', 'age': 1007}]>
+
+In [22]: User.objects.create(first_name = 'Jenny', last_name = 'AssViking', email_address = 'boss@thebiz.org', age='40')
+Out[22]: <User: User object>
+
+In [23]: User.objects.all().values().distinct()
+Out[23]: <QuerySet [{'first_name': u'Olivier', 'last_name': u'Butler', 'created_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>), u'id': 1, 'email_address': u'olivier@olivier.uk', 'age': 1007}, {'first_name': u'Jenny', 'last_name': u'AssViking', 'created_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837114, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837168, tzinfo=<UTC>), u'id': 2, 'email_address': u'boss@thebiz.org', 'age': 40}]>
+
+In [24]: User.objects.all().values(flat=True)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-24-3b86c3b8528b> in <module>()
+----> 1 User.objects.all().values(flat=True)
+
+TypeError: values() got an unexpected keyword argument 'flat'
+
+In [25]: User.objects.all().values_list(flat=True)
+Out[25]: <QuerySet [1, 2]>
+
+In [26]: User.objects.all().values_list()
+Out[26]: <QuerySet [(1, u'Olivier', u'Butler', u'olivier@olivier.uk', 1007, datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>)), (2, u'Jenny', u'AssViking', u'boss@thebiz.org', 40, datetime.datetime(2017, 8, 13, 23, 21, 26, 837114, tzinfo=<UTC>), datetime.datetime(2017, 8, 13, 23, 21, 26, 837168, tzinfo=<UTC>))]>
+
+In [27]: userNew = User(first_name = "Frankenstein's")
+
+In [28]: userNew.last_name = "Monster"
+
+In [29]: userNew.age = "32"
+
+In [30]: userNew.email_address = "franksBoy@gmail.com"
+
+In [31]: userNew.save()
+
+In [32]: Users.objects.all().values()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-32-25f4f53c6c7a> in <module>()
+----> 1 Users.objects.all().values()
+
+NameError: name 'Users' is not defined
+
+In [33]: User.objects.all().values()
+Out[33]: <QuerySet [{'first_name': u'Olivier', 'last_name': u'Butler', 'created_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>), u'id': 1, 'email_address': u'olivier@olivier.uk', 'age': 1007}, {'first_name': u'Jenny', 'last_name': u'AssViking', 'created_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837114, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837168, tzinfo=<UTC>), u'id': 2, 'email_address': u'boss@thebiz.org', 'age': 40}, {'first_name': u"Frankenstein's", 'last_name': u'Monster', 'created_at': datetime.datetime(2017, 8, 13, 23, 26, 56, 717744, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 26, 56, 717834, tzinfo=<UTC>), u'id': 3, 'email_address': u'franksBoy@gmail.com', 'age': 32}]>
+
+In [34]: User.objects.all()
+Out[34]: <QuerySet [<User: User object>, <User: User object>, <User: User object>]>
+
+In [35]: User.objects.first().first_name
+Out[35]: u'Olivier'
+
+In [36]: User.objects.last().first_name
+Out[36]: u"Frankenstein's"
+
+In [37]: User.objects.order_by('first_name')
+Out[37]: <QuerySet [<User: User object>, <User: User object>, <User: User object>]>
+
+In [38]: User.objects.order_by('first_name').name
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-38-77e856e05ad3> in <module>()
+----> 1 User.objects.order_by('first_name').name
+
+AttributeError: 'QuerySet' object has no attribute 'name'
+
+In [39]: User.objects.order_by('first_name').values('first_name')
+Out[39]: <QuerySet [{'first_name': u"Frankenstein's"}, {'first_name': u'Jenny'}, {'first_name': u'Olivier'}]>
+
+In [40]: User.models.get(id=3)
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-40-17e340f032fa> in <module>()
+----> 1 User.models.get(id=3)
+
+AttributeError: type object 'User' has no attribute 'models'
+
+In [41]: User.objects.get(id=3)
+Out[41]: <User: User object>
+
+In [42]: User.objects.get(id=3).last_name
+Out[42]: u'Monster'
+
+In [43]: editU = User.objects.get(id=3)
+
+In [44]: editU.last_name = Wingman
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-44-5864c76b7e9a> in <module>()
+----> 1 editU.last_name = Wingman
+
+NameError: name 'Wingman' is not defined
+
+In [45]: editU.last_name = 'Wingman'
+
+In [46]: editU.save()
+
+In [47]: Users.objects.get(id=3).values()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-47-2fd3b2e6ce49> in <module>()
+----> 1 Users.objects.get(id=3).values()
+
+NameError: name 'Users' is not defined
+
+In [48]: User.objects.get(id=3).values()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-48-93ca70e6aa49> in <module>()
+----> 1 User.objects.get(id=3).values()
+
+AttributeError: 'User' object has no attribute 'values'
+
+In [49]: User.objects.get(id=3)
+Out[49]: <User: User object>
+
+In [50]: User.objects.get(id=3).values_list()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-50-2b784da6d81d> in <module>()
+----> 1 User.objects.get(id=3).values_list()
+
+AttributeError: 'User' object has no attribute 'values_list'
+
+In [51]: User.objects.get(id=3).all()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-51-6580c38a0ebf> in <module>()
+----> 1 User.objects.get(id=3).all()
+
+AttributeError: 'User' object has no attribute 'all'
+
+In [52]: User.objects.get(id=3).first_name
+Out[52]: u"Frankenstein's"
+
+In [53]: User.objects.get(id=3).last_name
+Out[53]: u'Wingman'
+
+In [54]: for item in Users.objects.get(id=3):
+    ...:     print item
+    ...:     
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-54-d741eb253b7c> in <module>()
+----> 1 for item in Users.objects.get(id=3):
+      2     print item
+      3 
+
+NameError: name 'Users' is not defined
+
+In [55]: for item in User.objects.get(id=3):
+    ...:     print item
+    ...:     
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-55-696a789cb948> in <module>()
+----> 1 for item in User.objects.get(id=3):
+      2     print item
+      3 
+
+TypeError: 'User' object is not iterable
+
+In [56]: for item in (User.objects.get(id=3)):
+    ...:     print item
+    ...:     
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-56-a0b509ad6893> in <module>()
+----> 1 for item in (User.objects.get(id=3)):
+      2     print item
+      3 
+
+TypeError: 'User' object is not iterable
+
+In [57]: userTest = User.objects.get(id=3)
+
+In [58]: print userTest
+User object
+
+In [59]: print userTest.first_name, userTest.last_name, userTest.email_address, userTest.age
+Frankenstein's Wingman franksBoy@gmail.com 32
+
+In [60]: Users.objects.create(first_name = "Yellow", last_name = "Shirt", email = "generic@fodder.com", age = "27")
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-60-b68e40b84cc5> in <module>()
+----> 1 Users.objects.create(first_name = "Yellow", last_name = "Shirt", email = "generic@fodder.com", age = "27")
+
+NameError: name 'Users' is not defined
+
+In [61]: User.objects.create(first_name = "Yellow", last_name = "Shirt", email = "generic@fodder.com", age = "27")
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-61-0e4ac16f14d2> in <module>()
+----> 1 User.objects.create(first_name = "Yellow", last_name = "Shirt", email = "generic@fodder.com", age = "27")
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in create(self, **kwargs)
+    395         and returning the created object.
+    396         """
+--> 397         obj = self.model(**kwargs)
+    398         self._for_write = True
+    399         obj.save(force_insert=True, using=self.db)
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in __init__(self, *args, **kwargs)
+    553                     pass
+    554             if kwargs:
+--> 555                 raise TypeError("'%s' is an invalid keyword argument for this function" % list(kwargs)[0])
+    556         super(Model, self).__init__()
+    557         signals.post_init.send(sender=self.__class__, instance=self)
+
+TypeError: 'email' is an invalid keyword argument for this function
+
+In [62]: User.objects.create(first_name = "Yellow", last_name = "Shirt", email_address = "generic@fodder.com", age = "27")
+Out[62]: <User: User object>
+
+In [63]: User.object.values()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-63-601f126b3044> in <module>()
+----> 1 User.object.values()
+
+AttributeError: type object 'User' has no attribute 'object'
+
+In [64]: User.objects.all().values()
+Out[64]: <QuerySet [{'first_name': u'Olivier', 'last_name': u'Butler', 'created_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896725, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 13, 24, 896810, tzinfo=<UTC>), u'id': 1, 'email_address': u'olivier@olivier.uk', 'age': 1007}, {'first_name': u'Jenny', 'last_name': u'AssViking', 'created_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837114, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 21, 26, 837168, tzinfo=<UTC>), u'id': 2, 'email_address': u'boss@thebiz.org', 'age': 40}, {'first_name': u"Frankenstein's", 'last_name': u'Wingman', 'created_at': datetime.datetime(2017, 8, 13, 23, 26, 56, 717744, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 34, 53, 373846, tzinfo=<UTC>), u'id': 3, 'email_address': u'franksBoy@gmail.com', 'age': 32}, {'first_name': u'Yellow', 'last_name': u'Shirt', 'created_at': datetime.datetime(2017, 8, 13, 23, 42, 13, 556157, tzinfo=<UTC>), 'modified_at': datetime.datetime(2017, 8, 13, 23, 42, 13, 556246, tzinfo=<UTC>), u'id': 4, 'email_address': u'generic@fodder.com', 'age': 27}]>
+
+In [65]: User.objects.all().values('first_name')
+Out[65]: <QuerySet [{'first_name': u'Olivier'}, {'first_name': u'Jenny'}, {'first_name': u"Frankenstein's"}, {'first_name': u'Yellow'}]>
+
+In [66]: User.objects.get(id=4).delete()
+Out[66]: (1, {u'user_login.User': 1})
+
+In [67]: User.objects.all().values('first_name')
+Out[67]: <QuerySet [{'first_name': u'Olivier'}, {'first_name': u'Jenny'}, {'first_name': u"Frankenstein's"}]>
+
+In [68]: 
