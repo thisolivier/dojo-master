@@ -1,0 +1,298 @@
+(djangoEnv)  olivier  ~/Sites/DojoAssignments/Python/Django/dojo_ninjas   master ●  python manage.py shell 
+Python 2.7.10 (default, Feb  7 2017, 00:08:15) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.4.1 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: from apps.likes_courses.models import *
+
+In [2]: User.objects.all().values('name')
+---------------------------------------------------------------------------
+FieldError                                Traceback (most recent call last)
+<ipython-input-2-30cc3d8d6cb1> in <module>()
+----> 1 User.objects.all().values('name')
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in values(self, *fields)
+    715 
+    716     def values(self, *fields):
+--> 717         clone = self._values(*fields)
+    718         clone._iterable_class = ValuesIterable
+    719         return clone
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in _values(self, *fields)
+    710 
+    711         query.values_select = field_names
+--> 712         query.add_fields(field_names, True)
+    713 
+    714         return clone
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/sql/query.pyc in add_fields(self, field_names, allow_m2m)
+   1642                 names = sorted(list(get_field_names_from_opts(opts)) + list(self.extra) + list(self.annotation_select))
+   1643                 raise FieldError("Cannot resolve keyword %r into field. "
+-> 1644                                  "Choices are: %s" % (name, ", ".join(names)))
+   1645 
+   1646     def add_ordering(self, *ordering):
+
+FieldError: Cannot resolve keyword 'name' into field. Choices are: created_at, email, first_name, id, last_name, liked_books, modified_at, uploaded_books
+
+In [3]: User.objects.all().values('first_name')
+Out[3]: <QuerySet []>
+
+In [4]: User.objects.create(first_name="Jackie", last_name="Whoosits", email"jack@who")
+  File "<ipython-input-4-a05035c90a80>", line 1
+    User.objects.create(first_name="Jackie", last_name="Whoosits", email"jack@who")
+                                                                                 ^
+SyntaxError: invalid syntax
+
+
+In [5]: User.objects.create(first_name="Jackie", last_name="Whoosits", email="jack@who")
+Out[5]: <User: User object>
+
+In [6]: User.objects.create(first_name="Jill", last_name="Hill", email="jill@hill")
+Out[6]: <User: User object>
+
+In [7]: User.objects.create(first_name="Bat", last_name="Man", email="gotham@night")
+Out[7]: <User: User object>
+
+In [8]: user = User.objects.first()
+
+In [9]: book = Books(name="The Hill of Many", desc="a tall story", uploader=user)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-9-0a0b67a0f5e2> in <module>()
+----> 1 book = Books(name="The Hill of Many", desc="a tall story", uploader=user)
+
+NameError: name 'Books' is not defined
+
+In [10]: book = Book(name="The Hill of Many", desc="a tall story", uploader=user)
+
+In [11]: book.save()
+
+In [12]: book = Book(name="Jenny the Blacksmith", desc="wandering through a forest, she will find a castle", uploader=user)
+
+In [13]: book.save()
+
+In [14]: Book.all().values('name')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-14-0ce47c71cb55> in <module>()
+----> 1 Book.all().values('name')
+
+AttributeError: type object 'Book' has no attribute 'all'
+
+In [15]: Book.objects.all().values('name')
+Out[15]: <QuerySet [{'name': u'The Hill of Many'}, {'name': u'Jenny the Blacksmith'}]>
+
+In [16]: user = User.object.get(id=2)
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-16-a77763871e28> in <module>()
+----> 1 user = User.object.get(id=2)
+
+AttributeError: type object 'User' has no attribute 'object'
+
+In [17]: user = User.objects.get(id=2)
+
+In [18]: book = Book(name="Cats in a Bag", desc="Ever wonder what it's all about?", uploader=user)
+
+In [19]: book.save()
+
+In [20]: book = Book(name="The Aformentioned Sack", desc="Danger jumps into view... SOMETIMES", uploader=user)
+
+In [21]: user = User.objects.last()
+
+In [22]: book = Book(name="Fuck the Sunshine", desc="Jokes for a rainy day", uploader=user)
+
+In [23]: book.save()
+
+In [24]: book = Book(name="Who was Laughing Then?", desc="A study of 14th century whimsy", uploader=user)
+
+In [25]: book.save()
+
+In [26]: user = User.objects.first()
+
+In [27]: book = Book.objects.first()
+
+In [28]: user.liked_books.add(book)
+
+In [29]: book = Book.objects.last()
+
+In [30]: user.save()
+
+In [31]: user.liked_books.add(book)
+
+In [32]: user.save()
+
+In [33]: user.liked_books.name
+
+In [34]: user.liked_books.all()
+Out[34]: <QuerySet [<Book: Book object>, <Book: Book object>]>
+
+In [35]: user.liked_books.all().values('name')
+Out[35]: <QuerySet [{'name': u'The Hill of Many'}, {'name': u'Who was Laughing Then?'}]>
+
+In [36]: user = User.objects.get(id=2)
+
+In [37]: book = Book.objects.first()
+
+In [38]: user.liked_books.add(book)
+
+In [39]: user.save()
+
+In [40]: book = Book.objects.get(id=3)
+
+In [41]: user.liked_books.add(book)
+
+In [42]: user.save()
+
+In [43]: user.liked_books.all().values('name')
+Out[43]: <QuerySet [{'name': u'The Hill of Many'}, {'name': u'Cats in a Bag'}]>
+
+In [44]: for x in range(Book.objects.all().count()):
+    ...:     user = User.objects.get(id=3)
+    ...:     book = Book.objects.get(id=x)
+    ...:     user.liked_books.add(book)
+    ...:     user.save()
+    ...:     
+---------------------------------------------------------------------------
+DoesNotExist                              Traceback (most recent call last)
+<ipython-input-44-14a13ea66db2> in <module>()
+      1 for x in range(Book.objects.all().count()):
+      2     user = User.objects.get(id=3)
+----> 3     book = Book.objects.get(id=x)
+      4     user.liked_books.add(book)
+      5     user.save()
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in get(self, *args, **kwargs)
+    383             raise self.model.DoesNotExist(
+    384                 "%s matching query does not exist." %
+--> 385                 self.model._meta.object_name
+    386             )
+    387         raise self.model.MultipleObjectsReturned(
+
+DoesNotExist: Book matching query does not exist.
+
+In [45]: for x in range(Book.objects.all().count()):
+    ...:     user = User.objects.get(id=3)
+    ...:     book = Book.objects.get(id=x+1)
+    ...:     user.liked_books.add(book)
+    ...:     user.save()
+    ...:     
+
+In [46]: user.liked_books.all().values('name')
+Out[46]: <QuerySet [{'name': u'The Hill of Many'}, {'name': u'Jenny the Blacksmith'}, {'name': u'Cats in a Bag'}, {'name': u'Fuck the Sunshine'}, {'name': u'Who was Laughing Then?'}]>
+
+In [47]: Books.object.get(id=1).liked_users.values('name')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-47-41cd1e11d842> in <module>()
+----> 1 Books.object.get(id=1).liked_users.values('name')
+
+NameError: name 'Books' is not defined
+
+In [48]: Book.object.get(id=1).liked_users.values('name')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-48-b155dd13cc9f> in <module>()
+----> 1 Book.object.get(id=1).liked_users.values('name')
+
+AttributeError: type object 'Book' has no attribute 'object'
+
+In [49]: Book.objects.get(id=1).liked_users.values('name')
+---------------------------------------------------------------------------
+FieldError                                Traceback (most recent call last)
+<ipython-input-49-9e7e7405b687> in <module>()
+----> 1 Book.objects.get(id=1).liked_users.values('name')
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in values(self, *fields)
+    715 
+    716     def values(self, *fields):
+--> 717         clone = self._values(*fields)
+    718         clone._iterable_class = ValuesIterable
+    719         return clone
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in _values(self, *fields)
+    710 
+    711         query.values_select = field_names
+--> 712         query.add_fields(field_names, True)
+    713 
+    714         return clone
+
+/Users/olivier/Sites/DojoAssignments/Python/Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/sql/query.pyc in add_fields(self, field_names, allow_m2m)
+   1642                 names = sorted(list(get_field_names_from_opts(opts)) + list(self.extra) + list(self.annotation_select))
+   1643                 raise FieldError("Cannot resolve keyword %r into field. "
+-> 1644                                  "Choices are: %s" % (name, ", ".join(names)))
+   1645 
+   1646     def add_ordering(self, *ordering):
+
+FieldError: Cannot resolve keyword 'name' into field. Choices are: created_at, email, first_name, id, last_name, liked_books, modified_at, uploaded_books
+
+In [50]: Book.objects.get(id=1).liked_users.values('first_name')
+Out[50]: <QuerySet [{'first_name': u'Jackie'}, {'first_name': u'Jill'}, {'first_name': u'Bat'}]>
+
+In [51]: Book.objects.get(id=1).values('name')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-51-40aa8bd78553> in <module>()
+----> 1 Book.objects.get(id=1).values('name')
+
+AttributeError: 'Book' object has no attribute 'values'
+
+In [52]: Book.objects.get(id=1).name
+Out[52]: u'The Hill of Many'
+
+In [53]: Book.objects.first().upload_by
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-53-7f1671155630> in <module>()
+----> 1 Book.objects.first().upload_by
+
+AttributeError: 'Book' object has no attribute 'upload_by'
+
+In [54]: Book.objects.first().uploader
+Out[54]: <User: User object>
+
+In [55]: Book.objects.first().uploader.first_name
+Out[55]: u'Jackie'
+
+In [56]: Book.objects.get(id=2).liked_users.values('first_name')
+Out[56]: <QuerySet [{'first_name': u'Bat'}]>
+
+In [57]: Book.objects.get(id=2).upload_by.name
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-57-fbac3c450150> in <module>()
+----> 1 Book.objects.get(id=2).upload_by.name
+
+AttributeError: 'Book' object has no attribute 'upload_by'
+
+In [58]: Book.objects.get(id=2).uploader.name
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-58-d13fcc4b0795> in <module>()
+----> 1 Book.objects.get(id=2).uploader.name
+
+AttributeError: 'User' object has no attribute 'name'
+
+In [59]: Book.objects.get(id=2).uploader.first_name
+Out[59]: u'Jackie'
+
+In [60]: 
