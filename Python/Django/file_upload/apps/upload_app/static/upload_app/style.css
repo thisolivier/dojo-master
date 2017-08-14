@@ -1,0 +1,67 @@
+body{
+    font-family: sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: red;
+    background-image: url('./bg.png');
+    background-repeat: repeat;
+    margin: 2em;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+h1{
+    font-size: 3.5em;
+    position: relative;
+    top: -2rem;
+    left: -3.5rem;
+}
+
+h2{
+    font-size: 2.5em;
+}
+
+article{
+    background-color: white;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 70%;
+    padding: 0 0 1.5em 1.5em;
+}
+
+.content_container{
+    margin-top: -3rem;
+}
+
+input[type="submit"], a{
+    margin-top: 0.5em;
+    display: inline-block;
+    width: auto;
+    background-color: red;
+    color: inherit;
+    text-decoration: underline;
+    border-width: 0;
+    padding: 0.5em;
+    font-size: 2em;
+    font-family: 'Sedgwick Ave Display', cursive;
+    transform: rotate(-5deg);
+    transition: all 2s ease;
+}
+
+input[type="submit"]{
+    display: block;
+}
+
+input[type="submit"]:hover{
+    transform: rotate(10deg);
+    transition: all 0.5s ease;
+}
+
+li{
+    max-height: 3em;
+    overflow: hidden;
+}
+
+li span{
+    font-weight: bold;
+}

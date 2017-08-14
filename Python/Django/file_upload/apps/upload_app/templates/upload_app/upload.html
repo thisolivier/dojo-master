@@ -1,0 +1,35 @@
+<!doctype HTML>
+{% load static %}
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Give me your generic file</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Sedgwick+Ave+Display" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'upload_app/style.css' %}">
+    </head>
+    <body>
+        <article>
+            <h1>Throw me dem Files</h1>
+            <div class="content_container">
+                <p>Submit a file, I'll take care of it. Trust me!</p>
+                <form method="POST" action="/process_upload" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label>
+                        Choose File: 
+                        <input type="file" name="file">
+                    </label>
+                    <input type="submit" value="Chocks Away">
+                </form>
+            </div>
+        </article>
+        <article>
+            <h2>Files Uploaded</h2>
+            <ol>
+            {% for file in request.session.files %}
+                <li><span>{{ file.name }}</span> | {{ file.data }}</li>
+            {% endfor %}
+            </ol>
+            <a href="/reset">Reset</a>
+        </article>
+    </body>
+</html>
