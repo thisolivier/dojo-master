@@ -32,6 +32,7 @@ STATIC_URL = '/static/'
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.likes_courses',
     'apps.books_authors',
     'apps.ninjas_app',
     'django.contrib.admin',
