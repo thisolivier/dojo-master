@@ -1,0 +1,18 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The Game of Drudgery</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            <h1>Boring but Obligatory</h1>
+            <p>This 'game' so called is really just a comment on the dumb events which can seem meaningful to humans. Pick a number between one and 100, if it matches my number, you die, if not, I die. I'm probably going to die, so I hope you have fun.</p>
+            <form method="post" action="/evaluate">
+                <input type="text" name="guess">
+                <input type="Submit" value="Guess Away">
+            </form>
+        </article>
+    </body>
+</html>

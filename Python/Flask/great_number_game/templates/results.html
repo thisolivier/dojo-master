@@ -1,0 +1,33 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The Game of Drudgery</title>
+        <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            {% if session['my_num'] == session['human_num'] %}
+                <h1>I survived!</h1>
+                <p>Ha, you little ass, I survived! You know, what, I was so convinced I was going to die that I didn't even plan for this... I have a life now!</p>
+                <p>Wait, why the hell are you still here- you're supposed to be dead! Oh this isn't over, I'm coming for you...</p>
+                <a class="button" href="/">Reset</a>
+            {% else %}
+                <h1>Computer died</h1>
+                {% if session['my_num'] > session['human_num'] %}
+                    <p>The computer's number was higher than yours.</p>
+                {% else %}
+                    <p>The computer's number was lower than yours.</p>
+                {% endif %}
+                <form method="post" action="/evaluate">
+                    <input type="text" name="guess">
+                    <input type="Submit" value="Lazarus">
+                </form>
+            {% endif %}
+            
+        </article>
+        <div class="logs">
+            {{ session['my_num']}}/{{ session['human_num']}}
+        </div>
+    </body>
+</html>
