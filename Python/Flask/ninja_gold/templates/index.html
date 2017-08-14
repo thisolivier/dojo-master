@@ -1,0 +1,73 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <article>
+            <h1>It's off to work we go!</h1>
+            <p>You have {{session['gold_count']}} karma, 
+                {% if session['gold_count'] == 0 %}
+                    that's ok.
+                {% elif session['gold_count'] > 0 %}
+                    that's good.
+                {% else %}
+                    you're in trouble for the next life!
+                {% endif %}
+            </p>
+        </article>
+        <div class="stuff">
+            <widget>
+                <form action="/golds" method="post">
+                    <input type="hidden" name="location" value="hospital">
+                    <input type="submit" value="Hospital">
+                </form>
+                <p class="big">Excellent karma</p>
+            </widget>
+            <widget>
+                <form action="/golds" method="post">
+                    <input type="hidden" name="location" value="church">
+                    <input type="submit" value="Church">
+                </form>
+                <p class="big">Good karma</p>
+            </widget>
+            <widget class="small">
+                <form action="/golds" method="post">
+                    <input type="hidden" name="location" value="vortex">
+                    <input type="submit" value="Vortex">
+                </form>
+                <p class="big">Err. 900</p>
+            </widget>
+            <widget class="big">
+                    <form action="/golds" method="post" class="small">
+                        <input type="hidden" name="location" value="gardening">
+                        <input type="submit" value="Gardening">
+                    </form>
+                    <p class="big">Sort-of Good</p>
+            </widget>
+            <widget class="small">
+                    <form action="/reset" method="post">
+                        <input type="submit" value="Reset">
+                    </form>
+                    <p class="big">Do Not Press</p>
+            </widget>
+            <widget class="big">
+                    <form action="/golds" method="post">
+                        <input type="hidden" name="location" value="strippers">
+                        <input type="submit" value="Strippers">
+                    </form>
+                    <p class="big">Probably Bad Karma</p>
+            </widget>
+        </div>
+        <ol id="footer">
+            <h4>Log</h4>
+            {% for log in session['logs']%}
+                {% if loop.index0 < 40 %}
+                    <li>{{ "{} - Visited {} and got {} karma".format(log['time'], log['location'], log['gold']) }}</li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </body>
+</html>
