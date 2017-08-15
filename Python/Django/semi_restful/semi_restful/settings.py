@@ -28,9 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+STATIC_URL = '/static/'
+
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrapform',
+    'apps.users_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

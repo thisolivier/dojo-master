@@ -1,0 +1,32 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User {{ user.id }} | {{ user.first_name }} {{ user.last_name }}</title>
+        {% load static %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Anton|Nunito:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'users_app/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+            <ul class="list-group">
+                <li class="list-group-item">User ID: {{ user.id }}</li>
+                <li class="list-group-item">Email: {{ user.email }}</li>
+                <li class="list-group-item">Created at : {{ user.created_at }}</li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/{{ user.id }}/edit">Edit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/{{ user.id }}/delete">Delete</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
