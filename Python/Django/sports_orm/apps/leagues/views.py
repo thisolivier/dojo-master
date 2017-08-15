@@ -4,10 +4,18 @@ from .models import League, Team, Player
 from . import team_maker
 
 def index(request):
+	LeaguesNew = Team.objects.filter(location="Atlanta").values('league')
+	for my_le in LeaguesNew:
+		querySection = League.objects.filter(id=my_le['league']).values('name')
+		try:
+			queryResult | querySection
+		except:
+			queryResult = querySection
+	
 	context = {
-		"leagues": League.objects.all(),
-		"teams": Team.objects.all(),
-		"players": Player.objects.all(),
+		# "leagues": Leagues.objects.all(),
+		# "teams": Team.objects.all().order_by('-team_name')
+		"players": Player.objects.all().filter(first_name__regex=r'Alexander|Wyatt')
 	}
 	return render(request, "leagues/index.html", context)
 
