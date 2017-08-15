@@ -1,0 +1,24 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eye control Educationz</title>
+        {%load bootstrap %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Courses for Horses</h1>
+            <h2>Add a new course</h2>
+            <form class="form" method="post" action="/courses/new">
+                {% csrf_token %}
+                {{ form | bootstrap }}
+                <input type="submit" value="Create Course" class="btn">
+            </form>
+            <h2>Courses</h2>
+            <table class="table">
+                {{ table | safe }}
+            </table>
+        </div>
+    </body>
+</html>
