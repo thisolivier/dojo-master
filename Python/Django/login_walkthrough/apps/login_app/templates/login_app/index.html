@@ -1,0 +1,51 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login and Registration</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" role="alert">{{ message }}</div>
+                    {% elif message.tags == 'success' %}
+                        <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <div class="jumbotron">
+                <h1 class="display-3">Welcome to Ray Sucks.com</h1>
+                <hr>
+                <p>
+                    This is what happens when you use <b>inline styles</b>... you get mean little websites named after you.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col col-sm-6">
+                    <h1>Register</h1>
+                    <form method="post" action="/register">
+                        {% csrf_token %}
+                        <input type="text" class="form-control" name="first_name" placeholder="Enter you first name"><br>
+                        <input type="text" class="form-control" name="last_name" placeholder="Enter you first name"><br>
+                        <input type="text" class="form-control" name="email" placeholder="Enter your email"><br>
+                        <input type="text" class="form-control" name="password" placeholder="Enter a password"><br>
+                        <input type="text" class="form-control" name="c_password" placeholder="Re-enter password"><br>
+                        <input type="submit" class="btn primary" value="Register">
+                    </form>
+                </div>
+                <div class="col col-sm-6">
+                    <h1>Login</h1>
+                    <form method="post" action="/login">
+                        {% csrf_token %}
+                        <input type="text" class="form-control" name="email" placeholder="Enter your email"><br>
+                        <input type="text" class="form-control" name="password" placeholder="Enter a password"><br>
+                        <input type="submit" class="btn primary" value="Ray Sucks">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
