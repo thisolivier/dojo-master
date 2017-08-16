@@ -1,0 +1,32 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login or Register or Death</title>
+        {% load bootstrap %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Go away all of you</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>New Users</h3>
+                    <form class='form' action='process/register' method='post' class='col'>
+                        {% csrf_token %}
+                        {{ form_reg | bootstrap }}
+                        <input class='btn btn-primary' type='submit' value='NEW USER'>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Existing User</h3>
+                    <form class='form' action='process/login' method='post'>
+                        {% csrf_token %}
+                        {{ form_login | bootstrap }}
+                        <input class='btn btn-primary' type='submit' value='LOGIN'>
+                    </form>
+                </div>
+            </div> <!-- row -->
+        </div>
+    </body>
+</html>
