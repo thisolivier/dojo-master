@@ -12,17 +12,39 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h3>New Users</h3>
-                    <form class='form' action='process/register' method='post' class='col'>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if 'register' in message.tags %}
+                                {% if 'error' in message.tags %}
+                                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                                {% elif 'success' in message.tags %}
+                                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <form class='form' action='login/register' method='post' class='col'>
                         {% csrf_token %}
-                        {{ form_reg | bootstrap }}
+                        {{ form_reg | safe }}
                         <input class='btn btn-primary' type='submit' value='NEW USER'>
                     </form>
                 </div>
                 <div class="col-sm-6">
                     <h3>Existing User</h3>
-                    <form class='form' action='process/login' method='post'>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if 'login' in message.tags %}
+                                {% if 'error' in message.tags %}
+                                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                                {% elif 'success' in message.tags %}
+                                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <form class='form' action='login/login' method='post'>
                         {% csrf_token %}
-                        {{ form_login | bootstrap }}
+                        {{ form_log | safe }}
                         <input class='btn btn-primary' type='submit' value='LOGIN'>
                     </form>
                 </div>
