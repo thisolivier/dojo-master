@@ -6,5 +6,5 @@ def test(req):
 
 urlpatterns = [
     url(r'^$', views.display_log_reg),
-    url(r'in$', views.process_log)
+    url(r'process$', views.process_log)
 ]
