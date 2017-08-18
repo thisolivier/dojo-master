@@ -1,0 +1,27 @@
+<!doctype HTML>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Olivier Gold | Login and Reg</title>
+    </head>
+    <body>
+        <article>
+            <h1>Login and Registration</h1>
+            <section>
+                <h2>Login</h2>
+                <form method="post" action="/sign/in">
+                    {% csrf_token %}
+                    <label>
+                        Email
+                        <input type="text" name="email">
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password">
+                    </label>
+                    <input type="submit" value="login">
+                </form>
+            </section>
+        </article>
+    </body>
+</html>
