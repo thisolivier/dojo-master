@@ -33,6 +33,8 @@ STATIC_URL = '/static/'
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.game',
+    'apps.meta_display',
     'apps.login_reg',
     'django.contrib.admin',
     'django.contrib.auth',

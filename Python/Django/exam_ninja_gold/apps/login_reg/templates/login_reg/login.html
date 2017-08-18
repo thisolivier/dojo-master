@@ -9,6 +9,11 @@
     <body>
         <article>
             <h1>Login and Registration</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="hidden {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
             <section id="login">
                 <h2>Login</h2>
                 {% if messages %}

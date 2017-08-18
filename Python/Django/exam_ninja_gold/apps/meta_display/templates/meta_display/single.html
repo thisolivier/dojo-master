@@ -1,0 +1,24 @@
+<!doctype HTML>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            {% load static %}
+            <title>Olivier Gold | Home</title>
+            <link rel="stylesheet" href="{% static 'login_reg/style.css' %}">
+        </head>
+    <body>
+        <header>
+            <h1>Citizen {{ user_id }} Details</h1>
+            <nav>
+                <a href="/meta/">Return to the portal</a>
+            </nav>
+        </header>
+        <article>
+            <ul>
+                <li>Email: {{ name }}</li>
+                <li>Gold: {{ gold }}</li>
+                <li>Log: {{ log | safe }}</li>
+            <ul>
+        </article>
+    </body>
+    </html>

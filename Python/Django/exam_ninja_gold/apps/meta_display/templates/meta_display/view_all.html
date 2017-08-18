@@ -1,0 +1,21 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <title>Olivier Gold | Looking at people</title>
+        <link rel="stylesheet" href="{% static 'login_reg/style.css' %}">
+    </head>
+<body>
+    <header>
+        <h1>Look upon your fellow residents</h1>
+        <nav>
+            <a href="/meta">Return to the dark portal.</a>
+        </nav>
+    </header>
+    <article>
+        <h2>LOOK I SAY</h2>
+        {{ toptable | safe }}
+    </article>
+</body>
+</html>

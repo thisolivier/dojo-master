@@ -1,0 +1,63 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <title>Olivier Gold | The Thunderdome!</title>
+        <link rel="stylesheet" href="{% static 'login_reg/style.css' %}">
+    </head>
+<body>
+    <header>
+        <h1>Welcome to The Thunderdome</h1>
+        <div class="gold">
+            <p>
+                Foods 
+                <span fooodnum="">
+                    {{ golds }}
+                </span>
+            </p>
+        </div>
+        <nav>
+            <a href="/meta">Return to the dark portal.</a>
+        </nav>
+    </header>
+    <article>
+        <section>
+            <h2>Choose your fight, Earn your food</h2>
+            <div class="dome">
+                <div class="warrior">
+                    <h4>Acid Tree</h4>
+                    <p>Risk 50 Food</p>
+                    <a href="/game/fight/tree"><button>FIGHT</button></a>
+                </div>
+                <div class="warrior">
+                    <h4>Hulk</h4>
+                    <p>Risk 1000 Food</p>
+                    <a href="/game/fight/hulk"><button>FIGHT</button></a>
+                </div>
+                <div class="warrior">
+                    <h4>Dark pants</h4>
+                    <p>Risk 5 Food</p>
+                    <a href="/game/fight/pants"><button>FIGHT</button></a>
+                </div>
+                <div class="warrior">
+                    <h4>Plant</h4>
+                    <p>Risk 1 Food</p>
+                    <a href="/game/fight/plant"><button>FIGHT</button></a>
+                </div>
+
+            </div>
+        </section>
+        <section>
+            <h3>Review your failings</h3>
+            <ul class = "logs">
+                {% for entry in log %}
+                    <li>
+                        {{ entry | safe }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </article>
+</body>
+</html>

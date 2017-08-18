@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sign/', include('apps.login_reg.urls')),
-    url(r'^meta/', include('apps.meta_display.urls'))
+    url(r'^meta/', include('apps.meta_display.urls')),
+    url(r'^game/', include('apps.game.urls'))
 ]

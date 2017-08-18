@@ -1,0 +1,31 @@
+<!doctype HTML>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            {% load static %}
+            <title>Olivier Gold | Home</title>
+            <link rel="stylesheet" href="{% static 'login_reg/style.css' %}">
+        </head>
+    <body>
+        <header>
+            <h1>Linger here, it is your home</h1>
+            <div class="gold">
+                <p>
+                    Foods 
+                    <span fooodnum="">
+                        {{ golds }}
+                    </span>
+                </p>
+            </div>
+            <nav>
+                <a href="/sign/out">Run, you swine!</a>
+                <a href="/game">Step up.</a>
+                <a href="/meta/viewall">Voyeur</a>
+            </nav>
+        </header>
+        <article>
+            <h2>Top 5 Citizens</h2>
+            {{ top5table | safe }}
+        </article>
+    </body>
+</html>
