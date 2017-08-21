@@ -1,0 +1,33 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hero-Zero | {% block title %}Please Signin/Up{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-6">
+                <nav class="nav {{ title }}">
+                    <span class="h4">Super Hero Things</span>
+                </nav>
+            </div>
+            <div class="col col-sm-6 text-right">
+                {% if request.session.user_id %}
+                    <a href="/signout">Sign out</a>
+                {% else %}
+                    <a href="/signin">Sign in</a>
+                {% endif %}
+            </div>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

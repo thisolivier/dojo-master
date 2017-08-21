@@ -38,9 +38,8 @@ def process_reg(req):
     for key in results:
         if results[key] != True:
             failed = True
-            field_name = str(key).replace('_', ' ')
             problem = results[key][1]
-            messages.error(req, 'There was a problem with your {}; {}'.format(field_name, problem))
+            messages.error(req, 'There was a problem with your {}; {}'.format(key, problem))
     
     if failed: 
         return redirect('/register')
