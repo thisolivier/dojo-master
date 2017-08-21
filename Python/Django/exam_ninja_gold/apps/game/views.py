@@ -41,7 +41,7 @@ def proccess_fight(req, opponent):
 
     # Maybe kill user
     if (newgold < 0):
-        #user.delete()
+        user.delete()
         messages.error(req, 'You were eaten as payment for loosing, game over.', extra_tags='death')
         return redirect('/sign')
 
