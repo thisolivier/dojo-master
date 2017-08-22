@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-xs-12">
+        <h1>Power up!</h1>
+        <form action="/hero/add_power" method="POST">
+            <div class class="form-group">
+                <label for="first_name">Name</label>
+                <input class="form-control" type="text" name="name">
+            </div>
+            <div class class="form-group">
+                <label for="first_name">Description</label>
+                <input class="form-control" type="text" name="description">
+            </div>
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Add Power">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xs-12">
+        <h3>Diagnostics</h3>
+        {{ names }}
+    </div>
+</row>
+{% endblock %}

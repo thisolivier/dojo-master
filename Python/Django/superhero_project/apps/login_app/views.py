@@ -45,6 +45,11 @@ def signin(req):
         messages.error(req, 'Password do not match')
         return redirect('/portal')
 
+def signout(req):
+    del req.session['user_id']
+    messages.success(req, 'You signed out')
+    return redirect('/portal')
+
 def check_results(results, req):
     failed = False
     for key in results:
