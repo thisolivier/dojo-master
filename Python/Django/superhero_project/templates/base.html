@@ -10,12 +10,15 @@
         <div class="row">
             <div class="col col-sm-6">
                 <nav class="nav {{ title }}">
-                    <span class="h4">Super Hero Things</span>
+                    <span class="h3">Super Hero Masher</span>
                 </nav>
             </div>
             <div class="col col-sm-6 text-right">
                 {% if request.session.user_id %}
-                    <a href="/portal/signout">Sign out</a>
+                    <a href="/home" class="btn btn-success">Home</a>
+                    <a href="/hero/power" class="btn btn-success">Add Power</a>
+                    <a href="/hero/hero" class="btn btn-success">Add Hero</a>
+                    <a href="/portal/signout" class="btn btn-warning">Sign out</a>
                 {% else %}
                     <a href="/portal/signin">Sign in</a>
                 {% endif %}
@@ -24,7 +27,7 @@
         {% if messages %}
             {% for message in messages %}
                 {% if 'error' in message.tags %}
-                    <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
                 {% else %}
                     <div class="alert alert-success" role="alert">{{ message }}</div>
                 {% endif %}

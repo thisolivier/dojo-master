@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from models import Power, Hero
 
 # Create your views here.
@@ -33,7 +34,7 @@ def hero_form(req):
 
 def add_hero(req):
     # check fields
-    if req.POST['name'] < 3:
+    if len(req.POST['name']) < 3:
         messages.error(req, 'Hero name too short')
         return redirect('/hero/hero')
 
