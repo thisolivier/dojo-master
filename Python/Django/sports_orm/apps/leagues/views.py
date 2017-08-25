@@ -8,8 +8,8 @@ def index(request):
 	bad_teams = Player.objects.get(first_name="Samuel", last_name="Evans").all_teams.all().values_list('id', flat=True)
 	context = {
 		# "leagues": leagues,
-		"teams": Team.objects.all().filter(id__in=bad_teams)
-		# "players": Player.objects.filter(last_name='Flores').exclude(curr_team=bad_team)
+		"teams": Team.objects.all().filter(id__in=bad_teams),
+		"players": Player.objects.filter(last_name='Flores')
 	}
 	return render(request, "leagues/index.html", context)
 
