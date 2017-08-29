@@ -27,6 +27,21 @@ li span{
     font-weight: bolder;
 }
 
+header {
+    position: absolute;
+    padding: 0 0 0 1em;
+    box-sizing: border-box;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    background: black;
+    color: white;
+}
+
+header + article{
+    margin-top: 2em;
+}
+
 article{
     width: 25em;
     font-size: 2em;
