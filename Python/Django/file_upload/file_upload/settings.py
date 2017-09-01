@@ -122,4 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = BASE_DIR + '/uploaded_files'
-MEDIA_URL = BASE_DIR + '/uploaded_files/'
+MEDIA_URL = 'media/'

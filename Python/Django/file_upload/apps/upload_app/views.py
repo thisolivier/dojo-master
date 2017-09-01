@@ -13,6 +13,7 @@ def upload_form(req):
     print "-------> Rendering Form"
     context = {
         'form' : UploadFileForm(),
+        'files' : File.objects.all(),
     }
 
     return render(req, 'upload_app/upload.html', context)
