@@ -2,5 +2,8 @@
 
 import UIKit
 
-let str: String? = "dummy"
-print (str)
+class Person {
+    var species = "H. Sapiens"
+}
+var myPerson: Person = Person()
+print("\(myPerson.species)")
