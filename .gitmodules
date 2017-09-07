@@ -1,0 +1,3 @@
+[submodule "iOS/Intro to iOS/iOSTraining-Trivia"]
+	path = iOS/Intro to iOS/iOSTraining-Trivia
+	url = git@github.com:thisolivier/iOSTraining-Trivia.git
