@@ -24,13 +24,11 @@ struct Card{
         case .Blue:
             options = [5,6]
         }
-        print ("My colour is \(self.Color)")
         self.Roll = options[roll]
-        print ("My roll is \(self.Roll)")
     }
     
     var description: String {
-        return ("\(Color), \(Roll)")
+        return ("[\(Color), \(Roll)]")
     }
 }
 
@@ -78,9 +76,7 @@ class Deck{
     }
     
     func PrintDeck(){
-        print("""
-            Deck as follows ---
-            """)
+        print("Deck as follows ---")
         var toPrint = ""
         for card in self.Cards{
             toPrint += "[\(card.Color) \(card.Roll)]"
@@ -89,18 +85,13 @@ class Deck{
     }
 }
 
-func testDeck(){
-    let theDeck = Deck()
-    theDeck.PrintDeck()
-    theDeck.Shuffle()
-    theDeck.PrintDeck()
-}
-
 class Playa{
     var name:String
     var hand:[Card] = []
+    
     init(newName:String){
         self.name = newName
+        print ("Player \(newName) has joined the game")
     }
     
     func DrawFromDeck(myDeck:Deck) -> Card?{
@@ -116,7 +107,37 @@ class Playa{
         return diceRoll
     }
     
-    func MatchingCards()
+    func MatchingCards(corColor:Cols, corRoll:Int) -> Int{
+        var count = 0
+        for card in hand {
+            if card.Color == corColor && card.Roll == corRoll {
+                count += 1
+            }
+        }
+        return count
+    }
 }
 
+func testPlaya(){
+    let theDeck = Deck()
+    theDeck.Shuffle()
+    theDeck.PrintDeck()
+    print(" ")
+    let thePlaya = Playa(newName: "Joe Bloggs")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) drew a \(thePlaya.DrawFromDeck(myDeck: theDeck)!.description)")
+    print ("\(thePlaya.name) rolled a \(thePlaya.RollDice())")
+    
+    if let scaryCard = theDeck.Deal() {
+        let matches = thePlaya.MatchingCards(corColor: scaryCard.Color, corRoll: scaryCard.Roll)
+        print ("Joe has \(matches) cards matching \(scaryCard.description)")
+    } else {
+        print("No cards left")
+    }
+}
 
+testPlaya()
