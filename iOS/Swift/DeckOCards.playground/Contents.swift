@@ -39,7 +39,7 @@ class Deck{
     
     init(){
         for index in 1...3{
-            var currentColor = Cols(rawValue: index )!
+            let currentColor = Cols(rawValue: index )!
             for _ in 1...10{
                 self.Cards.append(Card(cardCol: currentColor))
             }
@@ -62,13 +62,6 @@ class Deck{
     }
     
     func Shuffle(){
-        print ("""
-            Preparing to shuffle
-            --------------------
-            Current state \(self.Cards)
-            
-            """)
-        
         let zeroIndexCards = self.Cards.count-1
         func newPosFromTotal(total:Int, used:Int) -> Int{
             let range = UInt32(total - used)
@@ -78,23 +71,52 @@ class Deck{
         
         for index in 0 ... zeroIndexCards{
             let newPos = newPosFromTotal(total: zeroIndexCards, used: index)
-            let temp = self.Cards[newPos]
+            let tempCard = self.Cards[newPos]
             self.Cards[newPos] = self.Cards[index]
-            self.Cards[index] = temp
+            self.Cards[index] = tempCard
         }
-        
-        print ("""
-            
-            Suffled state \(self.Cards)
-            --------------------
-            Shuffle done now
+    }
+    
+    func PrintDeck(){
+        print("""
+            Deck as follows ---
             """)
+        var toPrint = ""
+        for card in self.Cards{
+            toPrint += "[\(card.Color) \(card.Roll)]"
+        }
+        print (toPrint)
     }
 }
 
 func testDeck(){
     let theDeck = Deck()
+    theDeck.PrintDeck()
     theDeck.Shuffle()
+    theDeck.PrintDeck()
 }
 
-testDeck()
+class Playa{
+    var name:String
+    var hand:[Card] = []
+    init(newName:String){
+        self.name = newName
+    }
+    
+    func DrawFromDeck(myDeck:Deck) -> Card?{
+        if let newCard = myDeck.Deal(){
+            self.hand.append(newCard)
+            return newCard
+        }
+        return nil
+    }
+    
+    func RollDice() -> Int{
+        let diceRoll = Int(arc4random_uniform(5)) + 1
+        return diceRoll
+    }
+    
+    func MatchingCards()
+}
+
+
