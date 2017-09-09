@@ -4,3 +4,6 @@
 [submodule "iOS/Intro to iOS/iOSTesting-ColdCall"]
 	path = iOS/Intro to iOS/iOSTesting-ColdCall
 	url = git@github.com:thisolivier/iOSTesting-ColdCall.git
+[submodule "iOS/Intro to iOS/iOSTraining-TicTacToe"]
+	path = iOS/Intro to iOS/iOSTraining-TicTacToe
+	url = https://github.com/thisolivier/iOSTraining-TicTacToe
