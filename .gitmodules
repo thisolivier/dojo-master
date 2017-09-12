@@ -7,3 +7,6 @@
 [submodule "iOS/Intro to iOS/iOSTraining-TicTacToe"]
 	path = iOS/Intro to iOS/iOSTraining-TicTacToe
 	url = https://github.com/thisolivier/iOSTraining-TicTacToe
+[submodule "iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator"]
+	path = iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator
+	url = https://github.com/thisolivier/iOSTraining-JustAnotherTipCalculator
