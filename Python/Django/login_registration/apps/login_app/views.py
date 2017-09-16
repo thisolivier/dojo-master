@@ -8,12 +8,22 @@ import bcrypt
 def login_page(req):
     print "-------> Login page running"
     context = {
-        'form_reg' : forms.register(),
-        'form_log' : forms.login()
+        'form' : forms.login(),
+        'form_title' : "Login",
+        'route' : 'login/do'
+    }
+    return render(req, 'login_app/login.html', context)
+
+def register_page(req):
+    context = {
+        'form' : forms.register(),
+        'form_title' : "Register",
+        'route' : 'register/do'
     }
     return render(req, 'login_app/login.html', context)
 
 def register(req):
+    print "---------->"
     results = User.objects.check_reg(req.POST)
     if results['status']:
         new_user = User()
@@ -27,7 +37,7 @@ def register(req):
         for message in results['errors']:
             messages.error(req, message, extra_tags='register')
     print results
-    return redirect('/login')
+    return redirect('/login/register')
 
 def login(req):
     results = User.objects.check_login(req.POST)
