@@ -10,3 +10,6 @@
 [submodule "iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator"]
 	path = iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator
 	url = https://github.com/thisolivier/iOSTraining-JustAnotherTipCalculator
+[submodule "iOS/Intro to iOS/iOSTraining-ColdCall"]
+	path = iOS/Intro to iOS/iOSTraining-ColdCall
+	url = git@github.com:thisolivier/iOSTraining-ColdCall.git
