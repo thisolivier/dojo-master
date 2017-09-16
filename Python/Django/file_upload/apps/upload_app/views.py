@@ -1,24 +1,8 @@
 from django.shortcuts import render, redirect
-from django import forms
+from forms import UploadFileForm
+from models import File
 
 # Utilities
-class UploadFileForm(forms.Form):
-    file = forms.FileField()
-
-def handle_uploaded_file(file, req):
-    files = req.session['files']
-    files_len = len(req.session['files'])
-    files.append({
-            'name' : file.name,
-            'data' : ""
-    })
-    mystr= ' '
-    for chunk in file.chunks():
-        mystr += chunk
-    mystr = mystr.decode('ISO-8859-1')
-    files[files_len]['data'] = mystr
-    req.session.modified = True
-
 def reset(req):
     print "-----> Resetting"
     req.session['files'] = []
@@ -27,18 +11,19 @@ def reset(req):
 # Create your views here.
 def upload_form(req):
     print "-------> Rendering Form"
-    try:
-        req.session['files']
-    except:
-        reset(req)
-    return render(req, 'upload_app/upload.html')
+    context = {
+        'form' : UploadFileForm(),
+        'files' : File.objects.all(),
+    }
+
+    return render(req, 'upload_app/upload.html', context)
 
 def process_upload(req, methods=['POST']):
     print "-------> Uploading..."
     form = UploadFileForm(req.POST, req.FILES)
 
     if form.is_valid():
-        handle_uploaded_file(req.FILES['file'], req)
+        form.save()
         print "------> Upload success"
         return redirect('/')
 

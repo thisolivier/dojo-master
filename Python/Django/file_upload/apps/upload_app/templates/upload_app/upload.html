@@ -14,19 +14,20 @@
                 <p>Submit a file, I'll take care of it. Trust me!</p>
                 <form method="POST" action="/process_upload" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <label>
-                        Choose File: 
-                        <input type="file" name="file">
-                    </label>
-                    <input type="submit" value="Chocks Away">
+                    {{ form }}
+                    <input type="submit" value="Upload">
                 </form>
             </div>
         </article>
         <article>
             <h2>Files Uploaded</h2>
             <ol>
-            {% for file in request.session.files %}
-                <li><span>{{ file.name }}</span> | {{ file.data }}</li>
+            {% for file in files %}
+                {% if file.category == "images" %}
+                    <li><span>{{ file.category }}</span>  <img src="{{ file.file.url }}" alt="{{ file.file.name }}"></li>
+                {% else %}
+                    <li><span>{{ file.category }}</span> | {{ file.file.url }}</li>
+                {% endif %}
             {% endfor %}
             </ol>
             <a href="/reset">Reset</a>

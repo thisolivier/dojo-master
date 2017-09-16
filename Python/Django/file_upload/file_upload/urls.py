@@ -13,13 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, static
 from django.contrib import admin
+from settings import MEDIA_URL, MEDIA_ROOT
 
 def test(req):
     print "----> Pooky"
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('apps.upload_app.urls'))
-]
+    url(r'^$', include('apps.upload_app.urls'))
+] + static.static(MEDIA_URL, document_root=MEDIA_ROOT)
