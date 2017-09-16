@@ -1,0 +1,25 @@
+<!doctype HTML>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            {% load static %}
+            <title>Olivier Gold | Home</title>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link rel="stylesheet" href="{% static 'login_reg/style.css' %}">
+        </head>
+    <body>
+        <header>
+            <h1>Citizen {{ user_id }} Details</h1>
+            <nav>
+                <a href="/meta/">Return to the portal</a>
+            </nav>
+        </header>
+        <article>
+            <ul>
+                <li>Email: {{ name }}</li>
+                <li>Gold: {{ gold }}</li>
+                <li>Log: {{ log | safe }}</li>
+            <ul>
+        </article>
+    </body>
+    </html>

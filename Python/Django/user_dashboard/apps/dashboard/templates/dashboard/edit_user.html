@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-xs-8">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="col col-xs-4">
+        <a href="/dashboard{{ dash_link }}" class="btn btn-primary">Return to Dashboard</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-sm-6">
+        <h2>Edit information</h2>
+        <form action="/users/save/{{ target_user }}" method="POST">
+            {% csrf_token %}
+            <div class class="form-group">
+                <label for="first_name">First Name</label>
+                <input class="form-control" type="text" name="first_name">
+            </div>
+            <div class class="form-group">
+                <label for="first_name">Last Name</label>
+                <input class="form-control" type="text" name="last_name">
+            </div>
+            <div class class="form-group">
+                <label for="first_name">Email</label>
+                <input class="form-control" type="text" name="email">
+            </div>
+            {% if target_user %}
+            <div class class="form-group">
+                <label for="first_name">User Level</label>
+                <select class="form-control" name="admin">
+                    <option value="True">Administrator</option>
+                    <option value="False">Normal User</option>
+                </select>
+            </div>
+            {% endif %}
+            <input type="submit" class="btn btn-primary" value="save">
+        </form>
+    </div>
+    <div class="col col-sm-6">
+        <h2>Change Password</h2>
+        <form action="/users/save/{{ target_user }}" method="POST">
+            {% csrf_token %}
+            <div class class="form-group">
+                <label for="first_name">Password</label>
+                <input class="form-control" type="password" name="password">
+            </div>
+            <div class class="form-group">
+                <label for="first_name">Confirm Password</label>
+                <input class="form-control" type="password" name="password_c">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Update Password">
+        </form>
+    </div>
+</div>
+{% if not target_user %}
+<div class="row">
+    <div class="col col-sm-12">
+            <h2>Edit Description</h2>
+            <form action="/users/save/{{ target_user }}" method="POST">
+                {% csrf_token %}
+                <div class class="form-group">
+                    <label for="first_name">Description</label>
+                    <textarea class="form-control" name="description"></textarea>
+                </div>
+                <input type="submit" class="btn btn-primary">
+            </form>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

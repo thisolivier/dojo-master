@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row align-items-center">
+        <div class="col col-xs-9"><h1>Devilish Table</h1></div>
+        <div class="col col-xs-3 forboding"><a href="/" class="btn btn-dark">Deja-Vu</a></div>
+    </div>
+    <div class="row">
+        <div class="col col-xs-12">
+            <table class="table table-bordered">
+                <thead class="">
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mar</th>
+                    <th>Apr</th>
+                    <th>May</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                    <th>Sept</th>
+                    <th>Oct</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                </thead>
+                <tbody>
+                    <tr>
+                    {% for month in months %}
+                        <td>
+                            {% for user in month %}
+                                <span>{{ user.first_name }}</span>
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

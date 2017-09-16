@@ -1,0 +1,31 @@
+body{
+    font-family: sans-serif;
+}
+
+#login .register, #register .login{
+    display:none;
+}
+
+.dome{
+    display: flex;
+}
+
+.dome .warrior{
+    margin-right: 10px;
+}
+
+.hidden{
+    display:none;
+}
+
+.hidden.death{
+    display: block;
+    text-transform: capitalize;
+    color: red;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.logs li:first-of-type{
+    display: none;
+}

@@ -1,0 +1,12 @@
+span{
+    display:block;
+    text-transform: capitalize;
+}
+
+.forboding{
+    text-align: right;
+}
+
+form{
+    margin-bottom: 1em;
+}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-xs-12">
+        <h3>League of Heros</h3>
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Powers</th>
+                <th>Likes</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for hero in heros_query %}
+                    <tr>
+                        <td>
+                            <a href="/hero/view_hero/{{hero.id}}">
+                                {{ hero.name }}
+                            </a>
+                        </td>
+                        <td>
+                            {% for power in hero.powers.all %}
+                                {{ power.name }},
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {{ hero.liked_by.all | length }}
+                        </td>
+                        <td>
+                            {% if user in hero.liked_by.all %}
+                                <a href="/home/hate_hero/{{hero.id}}">
+                                    Hate
+                                </a>
+                            {% else %}
+                                <a href="/home/like_hero/{{hero.id}}">
+                                    Like
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</row>
+{% endblock %}

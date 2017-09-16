@@ -1,21 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import League, Team, Player
+from django.db.models import Count
 
 from . import team_maker
 
 def index(request):
-	LeaguesNew = Team.objects.filter(location="Atlanta").values('league')
-	for my_le in LeaguesNew:
-		querySection = League.objects.filter(id=my_le['league']).values('name')
-		try:
-			queryResult | querySection
-		except:
-			queryResult = querySection
-	
+	bad_teams = Player.objects.get(first_name="Samuel", last_name="Evans").all_teams.all().values_list('id', flat=True)
 	context = {
-		# "leagues": Leagues.objects.all(),
-		# "teams": Team.objects.all().order_by('-team_name')
-		"players": Player.objects.all().filter(first_name__regex=r'Alexander|Wyatt')
+		# "leagues": leagues,
+		"teams": Team.objects.all().filter(id__in=bad_teams),
+		"players": Player.objects.filter(last_name='Flores')
 	}
 	return render(request, "leagues/index.html", context)
 

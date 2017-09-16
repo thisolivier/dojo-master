@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col col-xs-12">
+            <h1>{{hero_name}}</h1>
+            <ul>
+                <li>Likes : 0</li>
+                <li>Powers : {% for power in hero_powers %}{{ power.name }}{% endfor %}</li>
+            </ul>
+            <form action="/hero/save_hero" method="POST">
+                <div class="form-group">
+                    <label for="power_id">Add Power</label>
+                    <select class="form-control" name="power_id">
+                        {% for power in all_powers %}
+                            <option value="{{ power.id }}">{{ power.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="again">
+                        Add another power?
+                    </label>
+                </div>
+                <input type="hidden" name="hero_id" value="{{ hero_id }}">
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

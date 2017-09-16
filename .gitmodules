@@ -1,0 +1,33 @@
+[submodule "iOS/Intro to iOS/iOSTraining-Trivia"]
+	path = iOS/Intro to iOS/iOSTraining-Trivia
+	url = git@github.com:thisolivier/iOSTraining-Trivia.git
+[submodule "iOS/Intro to iOS/iOSTesting-ColdCall"]
+	path = iOS/Intro to iOS/iOSTesting-ColdCall
+	url = git@github.com:thisolivier/iOSTesting-ColdCall.git
+[submodule "iOS/Intro to iOS/iOSTraining-TicTacToe"]
+	path = iOS/Intro to iOS/iOSTraining-TicTacToe
+	url = https://github.com/thisolivier/iOSTraining-TicTacToe
+[submodule "iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator"]
+	path = iOS/Intro to iOS/iOSTraining-JustAnotherTipCalculator
+	url = https://github.com/thisolivier/iOSTraining-JustAnotherTipCalculator
+[submodule "iOS/Intro to iOS/iOSTraining-ColdCall"]
+	path = iOS/Intro to iOS/iOSTraining-ColdCall
+	url = git@github.com:thisolivier/iOSTraining-ColdCall.git
+[submodule "iOS/Intro to iOS/iOSTraining-ObligationQuantifier"]
+	path = iOS/Intro to iOS/iOSTraining-ObligationQuantifier
+	url = https://github.com/thisolivier/iOSTraining-ObligationQuantifier
+[submodule "iOS/Intro to iOS/iOSTraining-BinaryAddition"]
+	path = iOS/Intro to iOS/iOSTraining-BinaryAddition
+	url = https://github.com/thisolivier/iOSTraining-BinaryAddition
+[submodule "iOS/Intro to iOS/iOSTraining-BucketList"]
+	path = iOS/Intro to iOS/iOSTraining-BucketList
+	url = git@github.com:thisolivier/iOSTraining-BucketList.git
+[submodule "iOS/Intro to iOS/iOSTraining-Compass"]
+	path = iOS/Intro to iOS/iOSTraining-Compass
+	url = https://github.com/thisolivier/iOSTraining-Compass
+[submodule "iOS/Intro to iOS/iOSTraining-RainbowRoad"]
+	path = iOS/Intro to iOS/iOSTraining-RainbowRoad
+	url = https://github.com/thisolivier/iOSTraining-RainbowRoad
+[submodule "iOS/Intro to iOS/iOSTraining-AgingPeople"]
+	path = iOS/Intro to iOS/iOSTraining-AgingPeople
+	url = https://github.com/thisolivier/iOSTraining-AgingPeople

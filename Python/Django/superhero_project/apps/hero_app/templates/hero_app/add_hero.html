@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-xs-12">
+        <h1>Make Hero</h1>
+        <form action="/hero/add_hero" method="POST">
+            <div class class="form-group">
+                <label for="first_name">Name</label>
+                <input class="form-control" type="text" name="name">
+            </div>
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Hero Time">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xs-12">
+        <h3>Diagnostics</h3>
+        {{ names }}
+    </div>
+</row>
+{% endblock %}

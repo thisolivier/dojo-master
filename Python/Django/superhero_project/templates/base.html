@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hero-Zero | {% block title %}Please Signin/Up{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-6">
+                <nav class="nav {{ title }}">
+                    <span class="h3">Super Hero Masher</span>
+                </nav>
+            </div>
+            <div class="col col-sm-6 text-right">
+                {% if request.session.user_id %}
+                    <a href="/home" class="btn btn-success">Home</a>
+                    <a href="/hero/power" class="btn btn-success">Add Power</a>
+                    <a href="/hero/hero" class="btn btn-success">Add Hero</a>
+                    <a href="/portal/signout" class="btn btn-warning">Sign out</a>
+                {% else %}
+                    <a href="/portal/signin">Sign in</a>
+                {% endif %}
+            </div>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'error' in message.tags %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

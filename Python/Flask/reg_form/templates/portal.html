@@ -1,0 +1,45 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Le Cul-de-sac</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <header>
+                    {% for category, message in messages %}
+                        <p class="{{category}}">{{message}}</p>
+                    {% endfor %}
+                </header>
+            {% endif %}
+        {% endwith %}
+        <article>
+            <h1>Bridge Under Construction</h1>
+            <form action="/process" method="post">
+                <fieldset>
+                    <legend>Name</legend> 
+                    <input type="text" name="first_name" placeholder="first">
+                    <input type="text" name="last_name" placeholder="last">
+                </fieldset>
+                <fieldset>
+                    <legend>Password</legend> 
+                    <input type="text" name="password" placeholder="Password">
+                    <input type="text" name="password_c" placeholder="Confirm Password">
+                </fieldset>
+                <fieldset>
+                    <legend>Beginning Date</legend> 
+                    <input type="number" name="day" placeholder="DD">
+                    <input type="number" name="month" placeholder="MM">
+                    <input type="number" name="year" placeholder="YYYY">
+                </fieldset>
+                <label>
+                    Email 
+                    <input type="text" name="email">
+                </label>
+                <input type="submit" value="Do not cross">
+            </form>
+        </article>
+    </body>
+</html>

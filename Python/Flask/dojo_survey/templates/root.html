@@ -2,10 +2,19 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Fill me in, fill me up</title>
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <header>
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                </header>
+            {% endif %}
+          {% endwith %}
         <article>
             <h1>Welcome Child</h1>
             <p>Feed the void your information</p>
